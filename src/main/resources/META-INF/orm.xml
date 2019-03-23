@@ -6,7 +6,7 @@
     
     <persistence-unit-metadata>
         <persistence-unit-defaults>
-            <schema>FridgeShare</schema>
+            <schema>FRIDGESHARE</schema>
         </persistence-unit-defaults>
     </persistence-unit-metadata>
     

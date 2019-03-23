@@ -7,11 +7,13 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-package dhbwka.wwi.vertsys.javaee.wastebin.ejb;
+package dhbwka.wwi.vertsys.javaee.fridgeshare.common.ejb;
 
-import dhbwka.wwi.vertsys.javaee.wastebin.jpa.ProduktKategorie;
-import dhbwka.wwi.vertsys.javaee.wastebin.jpa.Produkt;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.jpa.ProduktKategorie;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.jpa.Produkt;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.jpa.ProduktKategorie;
 import java.util.List;
+import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -36,11 +38,9 @@ public class ProduktBean {
         Produkt produkt = new Produkt(name, content, type);
         em.persist(produkt);
         return em.merge(produkt);
+         
     }
     
-    /**
-     * @return Liste mit allen Textschnippsel in umgedrehter Anlagereihenfolge
-     */
     public List<Produkt> findAllProducts() {
         return em.createQuery("SELECT w FROM Produkt w ").getResultList();
     }

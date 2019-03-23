@@ -1,6 +1,6 @@
-package dhbwka.wwi.vertsys.javaee.wastebin.web;
+package dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.web;
 
-import dhbwka.wwi.vertsys.javaee.wastebin.jpa.ProduktKategorie;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.jpa.ProduktKategorie;
 import java.util.ArrayList;
 import java.util.List;
 

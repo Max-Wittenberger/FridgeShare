@@ -7,7 +7,7 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-package dhbwka.wwi.vertsys.javaee.wastebin.jpa;
+package dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.jpa;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

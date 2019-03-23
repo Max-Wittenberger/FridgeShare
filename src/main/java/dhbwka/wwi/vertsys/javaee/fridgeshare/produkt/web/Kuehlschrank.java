@@ -7,10 +7,11 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-package dhbwka.wwi.vertsys.javaee.wastebin.web;
+package dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.web;
 
-import dhbwka.wwi.vertsys.javaee.wastebin.ejb.ProduktBean;
-import dhbwka.wwi.vertsys.javaee.wastebin.jpa.Produkt;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.common.ejb.ProduktBean;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.jpa.Produkt;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.jpa.ProduktKategorie;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
@@ -24,24 +25,25 @@ import javax.servlet.http.HttpServletResponse;
  * Startseite: Zeigt eine Übersicht der vorhandenen Textschnippsel sowie einen
  * Link zum Anlegen neuer Schnippsel.
  */
-@WebServlet(urlPatterns="/index.html")
-public class IndexServlet extends HttpServlet {
+@WebServlet(urlPatterns="/app/kuehlschrank")
+public class Kuehlschrank extends HttpServlet {
     
-    public static final String URL = "/index.html";
+    public static final String URL = "/app/kuehlschrank";
     
     @EJB
-    ProduktBean ProduktBean;
+    ProduktBean produktBean;
     
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     
         // Vorhandene Schnippsel einlesen und im Request Context ablegen
-        List<Produkt> alleProdukte = this.ProduktBean.findAllProducts();
-        request.setAttribute("alleProdukte", alleProdukte);
+       List<Produkt> alleProdukte;
+       alleProdukte = this.produktBean.findAllProducts();
+       request.setAttribute("alleProdukte", alleProdukte);
         
         // Anfrage an die index.jsp weiterleiten
-        request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/kuehlschrank.jsp").forward(request, response);
     }
     
 }

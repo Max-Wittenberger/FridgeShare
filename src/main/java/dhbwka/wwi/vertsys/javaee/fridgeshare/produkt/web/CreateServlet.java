@@ -7,10 +7,10 @@
  * Dieser Quellcode ist lizenziert unter einer
  * Creative Commons Namensnennung 4.0 International Lizenz.
  */
-package dhbwka.wwi.vertsys.javaee.wastebin.web;
+package dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.web;
 
-import dhbwka.wwi.vertsys.javaee.wastebin.ejb.ProduktBean;
-import dhbwka.wwi.vertsys.javaee.wastebin.jpa.ProduktKategorie;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.common.ejb.ProduktBean;
+import dhbwka.wwi.vertsys.javaee.fridgeshare.produkt.jpa.ProduktKategorie;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -23,13 +23,13 @@ import javax.servlet.http.HttpSession;
 /**
  * Anlegen eines neuen Textschnippsels.
  */
-@WebServlet(urlPatterns = {"/new/"})
+@WebServlet(urlPatterns = {"/app/new"})
 public class CreateServlet extends HttpServlet {
-
-    public static final String URL = "/new/";
     
     @EJB
     ProduktBean wasteBean;
+   
+    public static final String URL = "/new";
     
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,8 +58,8 @@ public class CreateServlet extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("utf-8");
-        
         // Eingegebene Werte prüfen
+        
         ProduktForm form = new ProduktForm();
         
         form.setName(request.getParameter("name"));
@@ -80,7 +80,7 @@ public class CreateServlet extends HttpServlet {
 
         // Eintrag speichern und zurück zur Startseite
         this.wasteBean.createNewProduct(form.getName(), form.getMenge(), form.getWasteType());
-        response.sendRedirect(request.getContextPath() + IndexServlet.URL);
+        response.sendRedirect(request.getContextPath() + Kuehlschrank.URL);
     }
     
 }
