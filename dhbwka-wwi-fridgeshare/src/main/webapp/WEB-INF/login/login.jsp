@@ -25,34 +25,17 @@
     <jsp:attribute name="content">
 
  <form action="j_security_check" method="post" class="stacked">
-           
-<%-- Eingabefelder    
-                        Benutzername:
-                        <span class="required">*</span>
-                       
-                        <input type="text" name="j_username">
-  
-                        Passwort:
-                        <span class="required">*</span>
-                   
-                        <input type="password" name="j_password">
-  
-                        <%-- Button zum Abschicken   -
-                     <button class="icon-login" type="submit">
-                        Einloggen
-                    </button>
-                     --%> 
-                     <div class="login-container">
-  <div class="login-form">
+     <div class="login-container"> 
+            <div class="login-form">
                     <h1> FridgeShare </h1>
                     <hr>
                     <h3>Login</h3>
                     <form>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="j_username" placeholder=" Your Email *">
+                            <input class="" type="text" name="j_username" placeholder=" Your Email *">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="password" name="j_password" placeholder="Your Password *">
+                            <input class="" type="password" name="j_password" placeholder="Your Password *">
                         </div>
                         <div class="form-group">
                             <button class="btnSubmit" type="submit">
@@ -64,6 +47,6 @@
                         </div>
                     </form>
                 </div>
-                     </div>
+                          </div> 
     </jsp:attribute>
 </template:base>

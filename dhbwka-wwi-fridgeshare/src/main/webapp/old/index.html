@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="index.css">
+<script type="text/javascript" src="index.js">
+
+</script>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="mainDiv">
+      <h1>WebApp</h1>
+      <textarea id="mainText" placeholder="Text hier eingeben" rows="8" cols="80">asf</textarea>
+      <button id="submitBtn" onclick="submitClick()" type="button" name="button">los</button>
+    </div>
+  </body>
+
+
+
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDM2HuSoltHYbWWza_7W0GJzWxM7DosXHo",
+    authDomain: "helloworld-1159c.firebaseapp.com",
+    databaseURL: "https://helloworld-1159c.firebaseio.com",
+    projectId: "helloworld-1159c",
+    storageBucket: "helloworld-1159c.appspot.com",
+    messagingSenderId: "83069176627"
+  };
+  firebase.initializeApp(config);
+</script>
+</html>

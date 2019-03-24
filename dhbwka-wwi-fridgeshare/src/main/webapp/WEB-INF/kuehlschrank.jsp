@@ -7,14 +7,9 @@
 
 <template:base>
     <jsp:attribute name="title">
-        Übersicht des ...
+        Übersicht Kühlschrank
     </jsp:attribute>
 
-    <jsp:attribute name="menu">
-        <div class="menuitem">
-            <a href="<c:url value="/app/new"/>">Produkt anlegen</a>
-        </div>
-    </jsp:attribute>
 
     <jsp:attribute name="content">
         <c:choose>

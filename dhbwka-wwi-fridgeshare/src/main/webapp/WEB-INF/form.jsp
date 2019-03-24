@@ -20,12 +20,6 @@
         <link rel="stylesheet" href="<c:url value="/css/task_edit.css"/>" />
     </jsp:attribute>
 
-    <jsp:attribute name="menu">
-        <div class="menuitem">
-            <a href="<c:url value="/app/kuehlschrank"/>">Kühlschrank</a>
-        </div>
-    </jsp:attribute>
-
     <jsp:attribute name="content">
         <form method="post" class="stacked">
             <div class="column">

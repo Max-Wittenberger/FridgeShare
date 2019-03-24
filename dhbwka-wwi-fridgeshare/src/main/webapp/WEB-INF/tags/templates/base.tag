@@ -32,31 +32,35 @@
 
         <jsp:invoke fragment="head"/>
     </head>
-    <body>
-        <%-- Kopfbereich --%>
-        <header>
-            <%-- Titelzeile --%>
-            <div id="titlebar">
-                <div class="appname">
-                    FridgeShare
-                </div>
-                <div class="content">
-                    ${title}
-                </div>
-            </div>
-
-            <%-- Menü --%>
-            <div id="menubar">
-                <jsp:invoke fragment="menu"/>
-
+    <header>
+                    <%-- Menü --%>
                 <c:if test="${not empty pageContext.request.userPrincipal}">
-                    <div class="menuitem">
-                        <a href="<c:url value="/logout/"/>" class="icon-logout">Logout ${pageContext.request.userPrincipal.name}</a>
-                    </div>
-                </c:if>
+                    <div>       
+    <nav class="navbar navbar-default">
+        <div class="container-fluid" >
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li>FridgeShare  ${title}</li>
+              <li><a href="<c:url value="/app/kuehlschrank"/>">Kühlschrank</a></li>
+              <li><a href="<c:url value="/app/kuehlschrank"/>">Einkaufswagen</a></li>
+              <li> <a href="<c:url value="/app/new"/>">Produkt anlegen</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="<c:url value="/logout/"/>">Logout ${pageContext.request.userPrincipal.name}</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
             </div>
+     </c:if>
+        
         </header>
+    
+    <body>
 
+
+                
+               
         <%-- Hauptinhalt der Seite --%>
         <main>    
             <jsp:invoke fragment="content"/>
