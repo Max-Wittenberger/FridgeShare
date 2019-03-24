@@ -22,15 +22,23 @@
         <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />
     </jsp:attribute>
 
-    <jsp:attribute name="menu">
-        <div class="menuitem">
-            <a href="<c:url value="/logout/"/>">Nochmal versuchen</a>
-        </div>
-    </jsp:attribute>
-
     <jsp:attribute name="content">
-        <p>
-            Das hat leider nicht geklappt. 🐻
-        </p>
+  
+ <div class="login-container"> 
+            <div class="login-form">
+                <form>
+                    <h1> FridgeShare </h1>
+                    <hr>
+                    <h3> HOPPLA </h3>
+                    <form>
+                        <div class="form-group">
+                          Das hat leider nicht geklappt
+                        </div>
+                        <div class="form-group">
+                           <a href="<c:url value="/logout/"/>">Nochmal Vesuchen</a>
+                        </div>
+                    </form>
+                </div>
+    </div> 
     </jsp:attribute>
 </template:base>

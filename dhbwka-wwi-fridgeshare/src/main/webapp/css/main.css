@@ -61,3 +61,7 @@ a, a:visited {
 a:hover {
     text-decoration: underline;
 }
+
+.errors{
+    color:red;
+}

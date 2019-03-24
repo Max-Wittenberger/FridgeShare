@@ -2,23 +2,20 @@ header{
   display: none;
 }
 
-
 .login-container{
     text-align: center;
-    padding: 15px;
+    padding: 10px;
 }
 
 .login-form{
-    padding: 1rem;
-    margin:auto;
+    padding: 1%;
+    margin: auto;
     margin-top: 3%;
     background: rgba(40, 134, 237, 0.7);
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10%;
     width: 30%;
-    height: 55%;
-
-    
+    height: 30%;
 }
 .login-form h3{
     text-align: center;
@@ -32,25 +29,33 @@ header{
     font-size: 150%;
 }
 
+.login-form div{
+    color: white;
+}
+
 .login-form input{
     border-radius: 1rem;
     font-size: 75%;
     padding: 1%;
-    border-bottom-color: pink;
-    width: 75%
+    border: 0px;
+    width: 75%;
+    color: black;
 }
 
 .btnSubmit{
     width: 50%;
     border-radius: 1rem;
-    padding: 1.5%;
+    padding: 0.5%;
     border: none;
     cursor: pointer;
-}
-
-.login-form .btnSubmit{
-    font-weight: 600;
+    font-weight: 550;
     color: #0062cc;
     background-color: #fff;
 }
+
+.login-form .btnSubmit{
+
+}
+
+
 

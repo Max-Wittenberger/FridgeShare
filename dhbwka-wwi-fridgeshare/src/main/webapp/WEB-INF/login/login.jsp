@@ -20,19 +20,19 @@
     </jsp:attribute>
 
     <jsp:attribute name="content">
-
- <form action="j_security_check" method="post" class="stacked">
+ <form action="j_security_check" method="post">
  <div class="login-container"> 
             <div class="login-form">
+                <form>
                     <h1> FridgeShare </h1>
                     <hr>
                     <h3> Login </h3>
                     <form>
                         <div class="form-group">
-                            <input class="" type="text" name="j_username" placeholder=" Your Email *">
+                            <input class="" type="text" name="j_username" placeholder=" E-Mail-Adresse *">
                         </div>
                         <div class="form-group">
-                            <input class="" type="password" name="j_password" placeholder="Your Password *">
+                            <input class="" type="password" name="j_password" placeholder="Dein Passwort *">
                         </div>
                         <div class="form-group">
                             <button class="btnSubmit" type="submit">
