@@ -15,29 +15,22 @@
 
 <template:base>
     <jsp:attribute name="title">
-        Anmeldung Fehlgeschlagen
+        Anmeldung nicht möglich
     </jsp:attribute>
 
     <jsp:attribute name="head">
         <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />
     </jsp:attribute>
 
+    <jsp:attribute name="menu">
+        <div class="menuitem">
+            <a href="<c:url value="/logout/"/>">Nochmal versuchen</a>
+        </div>
+    </jsp:attribute>
+
     <jsp:attribute name="content">
-  <div class="login-container">
-    <div class="login-form">
-                    <h1> FridgeShare </h1>
-                    <hr>
-                    <h3> HOPPLA </h3>
-                    <h3> Das hat leider nicht geklappt. </h3>
-                    <form>
-                        <div class="form-group">
-                            <button class="btnSubmit">
-                             <a href="<c:url value="/logout/"/>">Nochmal versuchen</a>
-                            </button>
-                           
-                        </div>
-                    </form>
-                </div>
-   </div>
+        <p>
+            Das hat leider nicht geklappt. 🐻
+        </p>
     </jsp:attribute>
 </template:base>

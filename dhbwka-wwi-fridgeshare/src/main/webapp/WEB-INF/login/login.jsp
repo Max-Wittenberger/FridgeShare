@@ -18,7 +18,7 @@
 
     <jsp:attribute name="menu">
         <div class="menuitem">
- 
+            <a href="<c:url value="/signup/"/>">Registrieren</a>
         </div>
     </jsp:attribute>
 
@@ -48,5 +48,6 @@
                     </form>
                 </div>
                           </div> 
+
     </jsp:attribute>
 </template:base>
