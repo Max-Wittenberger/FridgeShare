@@ -6,7 +6,7 @@ header{
     margin-top: 5%;
     margin-bottom: 5%;
     text-align: center;
-    position: relative;
+    position: relative
 }
 
 .login-form{
@@ -15,8 +15,7 @@ header{
     border-radius: 10%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
     margin: auto;
-    width: 20%;
-    height: 10%;
+    width: 20%
 }
 
 .login-form h3 , h1{
@@ -28,7 +27,6 @@ header{
 
 .login-form .btnSubmit{
     width: 75%;
-    height: 10%;
     font-weight: 600;
     color: #0062cc;
     background-color: #fff;
@@ -43,3 +41,7 @@ header{
     text-decoration: none;
 }
 
+li{
+    color: red;
+    font-size: 100%;
+}

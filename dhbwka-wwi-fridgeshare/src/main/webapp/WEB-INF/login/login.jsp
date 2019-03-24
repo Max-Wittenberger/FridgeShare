@@ -25,7 +25,7 @@
     <jsp:attribute name="content">
 
  <form action="j_security_check" method="post" class="stacked">
-     <div class="login-container"> 
+    <div class="login-container"> 
             <div class="login-form">
                     <h1> FridgeShare </h1>
                     <hr>
@@ -47,7 +47,7 @@
                         </div>
                     </form>
                 </div>
-                          </div> 
+    </div> 
 
     </jsp:attribute>
 </template:base>
