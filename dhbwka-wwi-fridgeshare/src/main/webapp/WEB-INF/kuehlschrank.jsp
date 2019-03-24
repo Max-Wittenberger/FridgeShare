@@ -10,12 +10,15 @@
         Übersicht Kühlschrank
     </jsp:attribute>
 
+            <jsp:attribute name="head">
+         <link rel="stylesheet" href="<c:url value="/css/kuehlschrank.css"/>" />
+    </jsp:attribute>
 
     <jsp:attribute name="content">
         <c:choose>
             <c:when test="${empty alleProdukte}">
                 <p>
-                    Es wurden keine Produkte gefunden 🙈
+                    Es wurden keine Produkte gefunden
                 </p>
             </c:when>
             <c:otherwise>
@@ -23,21 +26,38 @@
 
                 <%--  geht über die Liste und gibt alle Produkte aus --%>
                 <c:forEach items="${alleProdukte}" var="produkt">
-                        <tr>
-                            <td class="">
-                                <%-- Name des Schnippsels, mit Link --%>
-                               <c:out value="${produkt.name}"/>
-                            </td>
-                            <td>
+                         <div class="row">
+                            <div class="col-2 " style="color:#000000">
+                                <c:out value="${produkt.name}"/>
+                            </div>
+                            <div class="col-2">
                                 <c:out value="${produkt.type.label}"/>
-                            </td>
-                            <td>
-                                <c:out value="${produkt.menge}"/>
-                            </td>
-                        </tr>
-                        </br>
+                            </div>
+                             <div class="col-2">
+                               <c:out value="${produkt.menge}"/>
+                            </div>
+                            
+                            <div class="col-1">
+                            <button 
+                                    <i class="fas fa-snowflake"></i>
+                            </button>
+                            </div>
+                            <div class="col-1">
+                            <button >
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            </div>  
+                            <div class="col-1">
+                                <a href="">
+                                    <button type="button" name="button">
+                                        <i class="fas fa-cogs"></i>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </c:forEach>
             </c:otherwise>
         </c:choose>
+                      
     </jsp:attribute>
 </template:base>

@@ -1,3 +1,5 @@
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib tagdir="/WEB-INF/tags/templates" prefix="template"%>
@@ -13,11 +15,6 @@
          <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />
     </jsp:attribute>
 
-    <jsp:attribute name="menu">
-        <div class="menuitem">
-            <a href="<c:url value="/signup/"/>">Registrieren</a>
-        </div>
-    </jsp:attribute>
 
     <jsp:attribute name="content">
  <form action="j_security_check" method="post">

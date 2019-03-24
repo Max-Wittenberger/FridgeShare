@@ -8,16 +8,16 @@
     <jsp:attribute name="title">
         <c:choose>
             <c:when test="${edit}">
-                Aufgabe bearbeiten
+                Produkt bearbeiten
             </c:when>
             <c:otherwise>
-                Aufgabe anlegen
+                Produkt anlegen
             </c:otherwise>
         </c:choose>
     </jsp:attribute>
 
     <jsp:attribute name="head">
-        <link rel="stylesheet" href="<c:url value="/css/task_edit.css"/>" />
+         <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />
     </jsp:attribute>
 
     <jsp:attribute name="content">
@@ -27,54 +27,52 @@
                 <input type="hidden" name="csrf_token" value="${csrf_token}">
 
                 <%-- Eingabefelder --%>
-                <label for="task_owner">Eigentümer:</label>
+                <label for="produkt_owner">Eigentümer:</label>
                 <div class="side-by-side">
-                <%--   <input type="text" name="task_owner" value="${produkt_form.values["task_owner"][0]}" readonly="readonly"> --%>
+                <%-- <input type="text" name="task_owner" value="${produkt_form.values["task_owner"][0]}" readonly="readonly"> --%>
                 </div>
 
-
-
-                <label for="name">
-                    Bezeichnung:
-                    <span class="required">*</span>
-                </label>
-                <div class="side-by-side">
-                    <input name="name" value="${produkt_form.name}"
-                </div>
-
-                <label for="type">
-                    Kategorie:
-                <span class="required">*</span>
-                </label>
-                 <div class="side-by-side">
-                   <select name="type">
+                <%-- HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIER> --%>
+      <div class="login-container"> 
+            <div class="login-form">
+                        <%-- CSRF-Token --%>
+                        <input type="hidden" name="csrf_token" value="${csrf_token}">
+                <form>
+             <c:choose>
+                 <c:when test="${edit}">
+                    Produkt bearbeiten
+                 </c:when>
+                 <c:otherwise>
+                    Produkt anlegen
+                 </c:otherwise>
+            </c:choose>
+                    <form>
+                        <div class="form-group">
+                            <input name="name" value="${produkt_form.name}" placeholder="Produktname">
+                        </div>
+                        <div class="form-group">
+                           <select name="type">
                             <c:forEach items="${produktKategorie}" var="produktKategorie">
                                 <option value="${produktKategorie}" ${produkt_form.type == wasteType ? 'selected' : ''}>${produktKategorie.label}</option>
                             </c:forEach>
-                        </select>
-                    </div>
-                
-                 <label for="menge">
-                    Menge:
-                    <span class="required">*</span>
-                </label>
-                <div class="side-by-side">
-                    <input name="menge" type="number" value="${produkt_form.menge}" min="1">
-                </div>
-                
-                <%-- Button zum Abschicken --%>
-                <div class="side-by-side">
-                    <button class="icon-pencil" type="submit" name="action" value="save">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input name="menge" type="number" value="${produkt_form.menge}" min="1" value="1" placeholder="1">
+                        </div>
+                        <div class="form-group">
+                          <button class="icon-pencil" type="submit" name="action" value="save">
                         Sichern
                     </button>
-
                     <c:if test="${edit}">
                         <button class="icon-trash" type="submit" name="action" value="delete">
                             Löschen
                         </button>
                     </c:if>
+                    </form>
                 </div>
-            </div>
+    </div> 
+ </form>
 
             <%-- Fehlermeldungen --%>
             <c:if test="${!empty task_form.errors}">
