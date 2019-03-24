@@ -22,21 +22,21 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <title>Aufgabenliste: ${title}</title>
         
         <!-- https://pixabay.com/de/flach-design-symbol-icon-www-2126884/ -->
         <link rel="shortcut icon" href="<c:url value="/img/favicon.png"/>">
 
         <link rel="stylesheet" href="<c:url value="/css/main.css"/>" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <jsp:invoke fragment="head"/>
     </head>
     <header>
                     <%-- Menü --%>
                 <c:if test="${not empty pageContext.request.userPrincipal}">
-                    <div>       
+                    <%--                  <div>       
     <nav class="navbar navbar-default">
         <div class="container-fluid" >
           <div id="navbar" class="navbar-collapse collapse">
@@ -52,17 +52,21 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-            </div>
+</div> --%>
+    <div class="topnav">
+  <a href="<c:url value="/app/kuehlschrank"/>">FridgeShare</a>
+  <a href="<c:url value="/app/kuehlschrank"/>">Kühlschrank</a>
+  <a href="<c:url value="/app/kuehlschrank"/>">Einkaufswagen</a>
+  <a href="<c:url value="/app/new"/>">Produkt anlegen</a>
+  <a href="<c:url value="/logout/"/>">Logout ${pageContext.request.userPrincipal.name}</a>
+</div>
+                    
+ 
      </c:if>
         
         </header>
-    
-    <body>
-
-
-                
-               
-        <%-- Hauptinhalt der Seite --%>
+    <body>          
+       <%-- Hauptinhalt der Seite --%>
         <main>    
             <jsp:invoke fragment="content"/>
         </main>
