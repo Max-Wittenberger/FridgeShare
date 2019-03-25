@@ -10,7 +10,7 @@
         Übersicht Kühlschrank
     </jsp:attribute>
 
-            <jsp:attribute name="head">
+    <jsp:attribute name="head">
          <link rel="stylesheet" href="<c:url value="/css/kuehlschrank.css"/>" />
     </jsp:attribute>
 
@@ -24,9 +24,17 @@
             <c:otherwise>
                 <jsp:useBean id="utils" class="dhbwka.wwi.fridgeshare.common.web.WebUtils"/>
 
-                <%--  geht über die Liste und gibt alle Produkte aus --%>
+                
+                <%--  geht über die Liste und gibt alle Produkte aus für die jeweilige Kategorie --%>
+              <c:forEach items="${ProduktKategorie}" var="kategorie">
+                   <c:set var= "i" scope="session" value="0"></c:set> 
                 <c:forEach items="${alleProdukte}" var="produkt">
-                         <div class="row">
+                     <c:if test = "${produkt.type.label == kategorie.label}">
+                         <c:if test = "${i == 0}">
+                            <button class="collapsible"> <c:out value="${kategorie.label}"/> </button>
+                            <c:set var= "i" scope="session" value="1"></c:set>
+                         </c:if>
+                         <div class="row content">
                             <div class="col-2 " style="color:#000000">
                                 <c:out value="${produkt.name}"/>
                             </div>
@@ -39,7 +47,6 @@
                             <div class="col-2">
                                <c:out value="${produkt.maß}"/>
                             </div>
-                            
                             <div class="col-1">
                             <button 
                                     <i class="fas fa-snowflake"></i>
@@ -58,7 +65,11 @@
                                 </a>
                             </div>
                         </div>
+                         </c:if>   
                     </c:forEach>
+                        
+                 </c:forEach> 
+             
             </c:otherwise>
         </c:choose>
                       

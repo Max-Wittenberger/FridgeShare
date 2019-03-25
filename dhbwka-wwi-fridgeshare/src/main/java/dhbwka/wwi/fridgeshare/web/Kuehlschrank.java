@@ -36,10 +36,12 @@ public class Kuehlschrank extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
+        request.setAttribute("ProduktKategorie", ProduktKategorie.values());
+        
         // Vorhandene Schnippsel einlesen und im Request Context ablegen
        List<Produkt> alleProdukte;
        alleProdukte = this.produktBean.findAllProducts();
+       request.setAttribute("alleProdukte1", alleProdukte);
        request.setAttribute("alleProdukte", alleProdukte);
         
         // Anfrage an die index.jsp weiterleiten

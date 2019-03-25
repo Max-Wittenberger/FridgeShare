@@ -9,6 +9,7 @@
  */
 package dhbwka.wwi.fridgeshare.common.jpa;
 
+import java.awt.Color;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -41,12 +42,14 @@ public class User implements Serializable {
 
     @Id
     @Column(name = "USERNAME", length = 64)
-    @Size(min = 5, max = 64, message = "Der Benutzername muss zwischen fünf und 64 Zeichen lang sein.")
+    @Size(min = 5, max = 64, message = "Der Benutzername muss zwischen 5 und 64 Zeichen lang sein.")
     @NotNull(message = "Der Benutzername darf nicht leer sein.")
     private String username;
+    private String email;
+    private Color color;
     
     public class Password {
-        @Size(min = 6, max = 64, message = "Das Passwort muss zwischen sechs und 64 Zeichen lang sein.")
+        @Size(min = 6, max = 64, message = "Das Passwort muss zwischen 6 und 64 Zeichen lang sein.")
         public String password = "";
     }
     @Transient
@@ -86,6 +89,21 @@ public class User implements Serializable {
         this.username = id;
     }
 
+       public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Passwort setzen und prüfen">
