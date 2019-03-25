@@ -31,11 +31,12 @@
                 <c:forEach items="${alleProdukte}" var="produkt">
                      <c:if test = "${produkt.type.label == kategorie.label}">
                          <c:if test = "${i == 0}">
+                             <br>
                             <button class="collapsible"> <c:out value="${kategorie.label}"/> </button>
                             <c:set var= "i" scope="session" value="1"></c:set>
                          </c:if>
-                         <div class="row content">
-                            <div class="col-2 " style="color:#000000">
+                            <div class="row content" style="background: ${user.color}">
+                            <div class="col-2 ">
                                 <c:out value="${produkt.name}"/>
                             </div>
                             <div class="col-2">
@@ -57,14 +58,14 @@
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                             </div>  
-                            <div class="col-1">
+                            <div class="col-2">
                                 <a href="">
                                     <button type="button" name="button">
                                         <i class="fas fa-cogs"></i>
                                     </button>
                                 </a>
                             </div>
-                        </div>
+                            </div>
                          </c:if>   
                     </c:forEach>
                         

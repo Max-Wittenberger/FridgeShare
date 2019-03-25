@@ -12,6 +12,7 @@ package dhbwka.wwi.fridgeshare.common.web;
 import dhbwka.wwi.fridgeshare.common.ejb.ValidationBean;
 import dhbwka.wwi.fridgeshare.common.ejb.UserBean;
 import dhbwka.wwi.fridgeshare.common.jpa.User;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
@@ -54,12 +55,14 @@ public class SignUpServlet extends HttpServlet {
             throws ServletException, IOException {
         
         // Formulareingaben auslesen        
-        String username = request.getParameter("signup_username");
+        String username  = request.getParameter("signup_username");
         String password1 = request.getParameter("signup_password1");
         String password2 = request.getParameter("signup_password2");
+        String email     = request.getParameter("email");
+        String color     = request.getParameter("color");
         
         // Eingaben prüfen
-        User user = new User(username, password1);
+        User user = new User(username, password1, email, color);
         List<String> errors = this.validationBean.validate(user);
         this.validationBean.validate(user.getPassword(), errors);
         
@@ -70,7 +73,7 @@ public class SignUpServlet extends HttpServlet {
         // Neuen Benutzer anlegen
         if (errors.isEmpty()) {
             try {
-                this.userBean.signup(username, password1);
+                this.userBean.signup(username, password1, email, color);
             } catch (UserBean.UserAlreadyExistsException ex) {
                 errors.add(ex.getMessage());
             }

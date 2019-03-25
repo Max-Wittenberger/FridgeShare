@@ -10,6 +10,8 @@
 package dhbwka.wwi.fridgeshare.web;
 
 import dhbwka.wwi.fridgeshare.common.ejb.ProduktBean;
+import dhbwka.wwi.fridgeshare.common.ejb.UserBean;
+import dhbwka.wwi.fridgeshare.common.jpa.User;
 import dhbwka.wwi.fridgeshare.jpa.Produkt;
 import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
 import java.io.IOException;
@@ -31,18 +33,23 @@ public class Kuehlschrank extends HttpServlet {
     public static final String URL = "/app/kuehlschrank";
     
     @EJB
+    UserBean userBean;
+    
+    @EJB
     ProduktBean produktBean;
     
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+           throws ServletException, IOException {
         request.setAttribute("ProduktKategorie", ProduktKategorie.values());
         
         // Vorhandene Schnippsel einlesen und im Request Context ablegen
-       List<Produkt> alleProdukte;
-       alleProdukte = this.produktBean.findAllProducts();
-       request.setAttribute("alleProdukte1", alleProdukte);
+       List<Produkt> alleProdukte = this.produktBean.findAllProducts();
        request.setAttribute("alleProdukte", alleProdukte);
+       
+       User user = this.userBean.getCurrentUser();
+       request.setAttribute("user", user);
+       
         
         // Anfrage an die index.jsp weiterleiten
         request.getRequestDispatcher("/WEB-INF/kuehlschrank.jsp").forward(request, response);

@@ -33,6 +33,8 @@ public class Produkt implements Serializable {
     private String name = "";
     private ProduktKategorie type = ProduktKategorie.Sonstiges;
     private ProduktMaßeinheit maß = ProduktMaßeinheit.Stück;
+    private String owner = "";
+
 
     //@Lob
     private String menge = "";
@@ -89,6 +91,14 @@ public class Produkt implements Serializable {
     public void setMaß(ProduktMaßeinheit maß) {
         this.maß = maß;
     }
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Von Objekt geerbter Kram">

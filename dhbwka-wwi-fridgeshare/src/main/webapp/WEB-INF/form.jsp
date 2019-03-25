@@ -18,6 +18,7 @@
 
     <jsp:attribute name="head">
          <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />
+         <link rel="stylesheet" href="<c:url value="/css/form.css"/>" />
     </jsp:attribute>
 
     <jsp:attribute name="content">
@@ -49,6 +50,15 @@
             </c:choose>
                     </h1>
                     <form>
+                          <div  style="display: inline-block"> 
+                       <div class="onoffswitch">
+                            <input type="checkbox" name="fürmich" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                            <label class="onoffswitch-label" for="myonoffswitch">
+                                 <div class="onoffswitch-inner"></div>
+                                 <div class="onoffswitch-switch"></div>
+                            </label>
+                        </div>
+                              </div>
                         <div class="form-group">
                             <input name="name" value="${produkt_form.name}" placeholder="Produktname">
                         </div>
@@ -59,15 +69,15 @@
                             </c:forEach>
                             </select>
                         </div>
-                         <div class="form-group">
+                        <div class="form-group">
+                            <input name="menge" type="number" value="${produkt_form.menge}" min="1" placeholder="Menge">
+                        </div>
+                        <div class="form-group">
                            <select name="maß">
                             <c:forEach items="${produktMaßeinheit}" var="produktMaßeinheit">
                                 <option value="${produktMaßeinheit}" ${produkt_form.maß == wasteType ? 'selected' : ''}>${produktMaßeinheit.label}</option>
                             </c:forEach>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <input name="menge" type="number" value="${produkt_form.menge}" min="1" placeholder="Menge">
                         </div>
                         <div class="form-group">
                           <button class="icon-pencil" type="submit" name="action" value="save">

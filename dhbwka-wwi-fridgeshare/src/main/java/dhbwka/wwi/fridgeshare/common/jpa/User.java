@@ -46,7 +46,7 @@ public class User implements Serializable {
     @NotNull(message = "Der Benutzername darf nicht leer sein.")
     private String username;
     private String email;
-    private Color color;
+    private String color;
     
     public class Password {
         @Size(min = 6, max = 64, message = "Das Passwort muss zwischen 6 und 64 Zeichen lang sein.")
@@ -73,10 +73,12 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String username, String password) {
+    public User(String username, String password, String email, String color) {
         this.username = username;
         this.password.password = password;
         this.passwordHash = this.hashPassword(password);
+        this.email = email;
+        this.color = color;
     }
     //</editor-fold>
 
@@ -97,11 +99,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
     //</editor-fold>

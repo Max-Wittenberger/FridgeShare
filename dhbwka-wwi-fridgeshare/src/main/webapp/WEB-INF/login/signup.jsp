@@ -29,6 +29,12 @@
                              <input class="" type="text" name="signup_username" value="${signup_form.values["signup_username"][0]}" placeholder="Benutzername *">
                         </div>
                         <div class="form-group">
+                             <input class="" type="email" name="email" value="${signup_form.email}" placeholder="E-mail *">
+                        </div>
+                        <div class="form-group">
+                             <input class="" type="color" name="color" value="${signup_form.color}" placeholder="Deine persönliche Farbe">
+                        </div>
+                        <div class="form-group">
                              <input class="" type="password" name="signup_password1" value="${signup_form.values["signup_password1"][0]}" placeholder="Passwort *" >
                         </div>
                         <div class="form-group">

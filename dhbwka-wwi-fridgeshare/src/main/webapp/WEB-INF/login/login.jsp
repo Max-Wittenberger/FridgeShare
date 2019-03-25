@@ -26,7 +26,7 @@
                     <h3> Login </h3>
                     <form>
                         <div class="form-group">
-                            <input class="" type="text" name="j_username" placeholder=" E-Mail-Adresse *">
+                            <input class="" type="text" name="j_username" placeholder=" Benutzername *">
                         </div>
                         <div class="form-group">
                             <input class="" type="password" name="j_password" placeholder="Passwort *">
