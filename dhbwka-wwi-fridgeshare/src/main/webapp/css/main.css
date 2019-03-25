@@ -76,6 +76,8 @@ li{
 
 .topnav a:first-child { 
 color: blue;
+font-size: 300%;
+margin:-1%;
 
 }
 

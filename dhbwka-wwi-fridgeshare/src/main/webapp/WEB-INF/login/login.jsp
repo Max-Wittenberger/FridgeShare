@@ -29,7 +29,7 @@
                             <input class="" type="text" name="j_username" placeholder=" E-Mail-Adresse *">
                         </div>
                         <div class="form-group">
-                            <input class="" type="password" name="j_password" placeholder="Dein Passwort *">
+                            <input class="" type="password" name="j_password" placeholder="Passwort *">
                         </div>
                         <div class="form-group">
                             <button class="btnSubmit" type="submit">

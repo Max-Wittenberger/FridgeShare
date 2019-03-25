@@ -29,10 +29,10 @@
                              <input class="" type="text" name="signup_username" value="${signup_form.values["signup_username"][0]}" placeholder="Benutzername *">
                         </div>
                         <div class="form-group">
-                             <input class="" type="password" name="signup_password1" value="${signup_form.values["signup_password1"][0]}" placeholder="Dein Passwort *" >
+                             <input class="" type="password" name="signup_password1" value="${signup_form.values["signup_password1"][0]}" placeholder="Passwort *" >
                         </div>
                         <div class="form-group">
-                             <input class="" type="password" name="signup_password2" value="${signup_form.values["signup_password2"][0]}" placeholder="Dein Passwort (wdh.) *">
+                             <input class="" type="password" name="signup_password2" value="${signup_form.values["signup_password2"][0]}" placeholder="Passwort (wdh.) *">
                         </div>
                         <div class="form-group">
                             <button class="btnSubmit" type="submit">

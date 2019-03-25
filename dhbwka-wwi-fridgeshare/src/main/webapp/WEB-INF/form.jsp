@@ -38,6 +38,7 @@
                         <%-- CSRF-Token --%>
                         <input type="hidden" name="csrf_token" value="${csrf_token}">
                 <form>
+                    <h1>
              <c:choose>
                  <c:when test="${edit}">
                     Produkt bearbeiten
@@ -46,6 +47,7 @@
                     Produkt anlegen
                  </c:otherwise>
             </c:choose>
+                    </h1>
                     <form>
                         <div class="form-group">
                             <input name="name" value="${produkt_form.name}" placeholder="Produktname">
