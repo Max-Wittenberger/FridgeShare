@@ -11,6 +11,7 @@ package dhbwka.wwi.fridgeshare.web;
 
 import dhbwka.wwi.fridgeshare.common.ejb.ProduktBean;
 import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
+import dhbwka.wwi.fridgeshare.jpa.ProduktMaßeinheit;
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -29,7 +30,7 @@ public class CreateServlet extends HttpServlet {
     @EJB
     ProduktBean wasteBean;
    
-    public static final String URL = "/new";
+    public static final String URL = "/app/new";
     
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -46,6 +47,7 @@ public class CreateServlet extends HttpServlet {
         
         // Anfrage an die JSP weiterleiten
         request.setAttribute("produktKategorie", ProduktKategorie.values());
+        request.setAttribute("produktMaßeinheit", ProduktMaßeinheit.values());
         request.getRequestDispatcher("/WEB-INF/form.jsp").forward(request, response);
 
         // Fehlermeldungen und so weiter aus der Session löschen, damit sie
@@ -65,6 +67,7 @@ public class CreateServlet extends HttpServlet {
         form.setName(request.getParameter("name"));
         form.setMenge(request.getParameter("menge"));
         form.setType(request.getParameter("type"));
+        form.setMaß(request.getParameter("maß"));
 
         form.checkValues();
         
@@ -79,7 +82,7 @@ public class CreateServlet extends HttpServlet {
         }
 
         // Eintrag speichern und zurück zur Startseite
-        this.wasteBean.createNewProduct(form.getName(), form.getMenge(), form.getWasteType());
+        this.wasteBean.createNewProduct(form.getName(), form.getMenge(), form.getProduktKategorie(), form.getProduktMaßeinheit());
         response.sendRedirect(request.getContextPath() + Kuehlschrank.URL);
     }
     

@@ -36,6 +36,9 @@
                              <div class="col-2">
                                <c:out value="${produkt.menge}"/>
                             </div>
+                            <div class="col-2">
+                               <c:out value="${produkt.maß}"/>
+                            </div>
                             
                             <div class="col-1">
                             <button 

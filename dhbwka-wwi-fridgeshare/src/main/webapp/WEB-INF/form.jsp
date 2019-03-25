@@ -59,8 +59,15 @@
                             </c:forEach>
                             </select>
                         </div>
+                         <div class="form-group">
+                           <select name="maß">
+                            <c:forEach items="${produktMaßeinheit}" var="produktMaßeinheit">
+                                <option value="${produktMaßeinheit}" ${produkt_form.maß == wasteType ? 'selected' : ''}>${produktMaßeinheit.label}</option>
+                            </c:forEach>
+                            </select>
+                        </div>
                         <div class="form-group">
-                            <input name="menge" type="number" value="${produkt_form.menge}" min="1" value="1" placeholder="1">
+                            <input name="menge" type="number" value="${produkt_form.menge}" min="1" placeholder="Menge">
                         </div>
                         <div class="form-group">
                           <button class="icon-pencil" type="submit" name="action" value="save">

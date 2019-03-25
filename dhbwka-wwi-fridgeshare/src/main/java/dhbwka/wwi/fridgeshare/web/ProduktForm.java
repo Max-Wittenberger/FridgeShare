@@ -1,6 +1,7 @@
 package dhbwka.wwi.fridgeshare.web;
 
 import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
+import dhbwka.wwi.fridgeshare.jpa.ProduktMaßeinheit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class ProduktForm {
     private String name = "";
     private String menge = "";
     private String type = "";
+    private String maß = "";
 
     //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
     public List<String> getErrors() {
@@ -51,6 +53,14 @@ public class ProduktForm {
     public void setType(String type) {
         this.type = type;
     }
+    
+        public String getMaß() {
+        return maß;
+    }
+
+    public void setMaß(String maß) {
+        this.maß = maß;
+    }
     //</editor-fold>
 
     /**
@@ -74,11 +84,19 @@ public class ProduktForm {
      * Richtige Konstante für das Feld "type" ermitteln
      * @return Konstante
      */
-    public ProduktKategorie getWasteType() {
+    public ProduktKategorie getProduktKategorie() {
         try {
             return ProduktKategorie.valueOf(type);
         } catch (IllegalArgumentException ex) {
             return ProduktKategorie.Sonstiges;
+        }
+    }
+    
+        public ProduktMaßeinheit getProduktMaßeinheit() {
+        try {
+            return ProduktMaßeinheit.valueOf(maß);
+        } catch (IllegalArgumentException ex) {
+            return ProduktMaßeinheit.Stück;
         }
     }
     

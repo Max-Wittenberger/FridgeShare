@@ -32,6 +32,7 @@ public class Produkt implements Serializable {
 
     private String name = "";
     private ProduktKategorie type = ProduktKategorie.Sonstiges;
+    private ProduktMaßeinheit maß = ProduktMaßeinheit.Stück;
 
     //@Lob
     private String menge = "";
@@ -40,10 +41,11 @@ public class Produkt implements Serializable {
     public Produkt() {
     }
     
-    public Produkt(String name, String menge, ProduktKategorie type) {
+    public Produkt(String name, String menge, ProduktKategorie type, ProduktMaßeinheit maß) {
         this.name = name;
         this.menge = menge;
         this.type = type;
+        this.maß = maß;
     }
     //</editor-fold>
     
@@ -78,6 +80,14 @@ public class Produkt implements Serializable {
 
     public void setType(ProduktKategorie type) {
         this.type = type;
+    }
+    
+    public ProduktMaßeinheit getMaß() {
+        return maß;
+    }
+
+    public void setMaß(ProduktMaßeinheit maß) {
+        this.maß = maß;
     }
     //</editor-fold>
 

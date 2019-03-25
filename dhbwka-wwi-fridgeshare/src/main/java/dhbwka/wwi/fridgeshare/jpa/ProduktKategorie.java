@@ -10,7 +10,7 @@
 package dhbwka.wwi.fridgeshare.jpa;
 
 /**
- * Aufzählung der verfügbaren Sprachen für das Syntax Highlighting,
+ * Aufzählung der verfügbaren Kategorien für ein Produkt,
  */
 public enum ProduktKategorie {
 
@@ -45,8 +45,8 @@ public enum ProduktKategorie {
     }
 
     /**
-     * Name der Programmiersprache für den Prism.js Syntaxhighlighter ermitteln.
-     * @return Name der Sprache für prism.js
+     * Name der Kategorie für ein Produkt.
+     * @return Kategorie
      */
     public String getPrism() {
         switch (this) {

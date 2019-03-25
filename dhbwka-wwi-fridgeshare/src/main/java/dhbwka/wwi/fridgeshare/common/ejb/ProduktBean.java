@@ -1,19 +1,10 @@
-/*
- * Copyright © 2018 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
 package dhbwka.wwi.fridgeshare.common.ejb;
 
-import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
+
 import dhbwka.wwi.fridgeshare.jpa.Produkt;
 import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
+import dhbwka.wwi.fridgeshare.jpa.ProduktMaßeinheit;
 import java.util.List;
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,11 +23,11 @@ public class ProduktBean {
      * @param name Bezeichnung
      * @param content Inhalt
      * @param type Syntaxhervorhebung
+     * @param maß Maßeinheit
      * @return Der angelegte Textschnippsel
      */
-    public Produkt createNewProduct(String name, String content, ProduktKategorie type) {
-        Produkt produkt = new Produkt(name, content, type);
-        em.persist(produkt);
+    public Produkt createNewProduct(String name, String content, ProduktKategorie type, ProduktMaßeinheit maß) {
+        Produkt produkt = new Produkt(name, content, type, maß);
         return em.merge(produkt);
          
     }
