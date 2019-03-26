@@ -17,7 +17,7 @@
 
     <jsp:attribute name="content">
    
-            <form method="post" class="stacked">
+    <form method="post" class="stacked">
       <div class="login-container"> 
             <div class="login-form">
                     <h1> FridgeShare </h1>

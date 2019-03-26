@@ -6,10 +6,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <template:base>
-    <jsp:attribute name="title">
-        Übersicht Kühlschrank
-    </jsp:attribute>
-
     <jsp:attribute name="head">
          <link rel="stylesheet" href="<c:url value="/css/kuehlschrank.css"/>" />
     </jsp:attribute>
@@ -18,13 +14,13 @@
         <c:choose>
             <c:when test="${empty alleProdukte}">
                 <p>
-                    Es wurden keine Produkte gefunden
+                    Es wurden keine Produkte gefunden.
                 </p>
             </c:when>
             <c:otherwise>
                 <jsp:useBean id="utils" class="dhbwka.wwi.fridgeshare.common.web.WebUtils"/>
 
-                
+                <div class="gruppe"> <h1>Gruppe 1</h1>
                 <%--  geht über die Liste und gibt alle Produkte aus für die jeweilige Kategorie --%>
               <c:forEach items="${ProduktKategorie}" var="kategorie">
                    <c:set var= "i" scope="session" value="0"></c:set> 
@@ -70,7 +66,9 @@
                     </c:forEach>
                         
                  </c:forEach> 
-             
+             </div>
+              
+              <div class="gruppe">Gruppe 2</div>
             </c:otherwise>
         </c:choose>
                       

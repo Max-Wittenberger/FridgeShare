@@ -37,24 +37,8 @@
     <header>
                     <%-- Menü --%>
                 <c:if test="${not empty pageContext.request.userPrincipal}">
-                    <%--                  <div>       
-    <nav class="navbar navbar-default">
-        <div class="container-fluid" >
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li>FridgeShare  ${title}</li>
-              <li><a href="<c:url value="/app/kuehlschrank"/>">Kühlschrank</a></li>
-              <li><a href="<c:url value="/app/kuehlschrank"/>">Einkaufswagen</a></li>
-              <li> <a href="<c:url value="/app/new"/>">Produkt anlegen</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="<c:url value="/logout/"/>">Logout ${pageContext.request.userPrincipal.name}</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
-</div> --%>
-    <div class="topnav">
+
+<div class="topnav">
   <a href="<c:url value="/app/kuehlschrank"/>">FridgeShare</a>
   <a href="<c:url value="/app/kuehlschrank"/>">Kühlschrank</a>
   <a href="<c:url value="/app/kuehlschrank"/>">Einkaufswagen</a>

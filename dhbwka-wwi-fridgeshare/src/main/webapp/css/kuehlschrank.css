@@ -1,9 +1,14 @@
 main{
-    background-color: white;
+    background-color: transparent;
     margin: 1rem;
     border-radius: 0.5rem;
 }
 
 head {
     display: '' !important ;
+}
+
+.gruppe{
+    background-color: white;
+    margin: 2%;
 }

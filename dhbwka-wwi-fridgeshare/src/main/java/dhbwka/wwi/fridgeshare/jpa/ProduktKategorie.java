@@ -5,7 +5,7 @@ package dhbwka.wwi.fridgeshare.jpa;
  */
 public enum ProduktKategorie {
 
-    Sonstiges, Fleisch, Fisch , Obst, Gemüse, Milchprodukte, Süsswaren, Gefrierfach;
+    Fleisch, Fisch , Obst, Gemüse, Milchprodukte, Süsswaren, Gefrierfach, Sonstiges ;
 
     /**
      * Bezeichnung ermitteln

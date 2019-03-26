@@ -83,7 +83,7 @@ public class CreateServlet extends HttpServlet {
 
         // Eintrag speichern und zurück zur Startseite
         this.wasteBean.createNewProduct(form.getName(), form.getMenge(), form.getProduktKategorie(), form.getProduktMaßeinheit());
-        response.sendRedirect(request.getContextPath() + Kuehlschrank.URL);
+        response.sendRedirect(request.getContextPath() + KuehlschrankServlet.URL);
     }
     
 }

@@ -33,7 +33,7 @@
                 <%-- <input type="text" name="task_owner" value="${produkt_form.values["task_owner"][0]}" readonly="readonly"> --%>
                 </div>
 
-                <%-- HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIER> --%>
+            
       <div class="login-container"> 
             <div class="login-form">
                         <%-- CSRF-Token --%>
@@ -60,17 +60,17 @@
                         </div>
                               </div>
                         <div class="form-group">
-                            <input name="name" value="${produkt_form.name}" placeholder="Produktname">
+                            <input name="name" value="${produkt_form.name}" placeholder="Produktname" required>
                         </div>
                         <div class="form-group">
                            <select name="type">
                             <c:forEach items="${produktKategorie}" var="produktKategorie">
-                                <option value="${produktKategorie}" ${produkt_form.type == wasteType ? 'selected' : ''}>${produktKategorie.label}</option>
+                                <option selected="Sonstiges" value="${produktKategorie}" ${produkt_form.type == wasteType ? 'selected' : ''}>${produktKategorie.label}</option>
                             </c:forEach>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input name="menge" type="number" value="${produkt_form.menge}" min="1" placeholder="Menge">
+                            <input name="menge" type="number" value="${produkt_form.menge}" min="1" placeholder="Menge" required>
                         </div>
                         <div class="form-group">
                            <select name="maß">

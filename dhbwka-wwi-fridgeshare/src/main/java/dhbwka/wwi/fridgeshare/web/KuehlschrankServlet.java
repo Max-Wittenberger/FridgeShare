@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  * Link zum Anlegen neuer Schnippsel.
  */
 @WebServlet(urlPatterns="/app/kuehlschrank")
-public class Kuehlschrank extends HttpServlet {
+public class KuehlschrankServlet extends HttpServlet {
     
     public static final String URL = "/app/kuehlschrank";
     
