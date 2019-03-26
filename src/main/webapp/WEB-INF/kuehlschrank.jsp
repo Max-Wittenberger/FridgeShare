@@ -50,7 +50,7 @@
                             </button>
                             </div>
                             <div class="col-1">
-                            <button >
+                            <button>
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                             </div>  
@@ -64,10 +64,8 @@
                             </div>
                          </c:if>   
                     </c:forEach>
-                        
                  </c:forEach> 
              </div>
-              
               <div class="gruppe">Gruppe 2</div>
             </c:otherwise>
         </c:choose>
