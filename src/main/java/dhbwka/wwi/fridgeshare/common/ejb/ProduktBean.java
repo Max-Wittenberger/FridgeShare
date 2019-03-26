@@ -7,6 +7,7 @@ import dhbwka.wwi.fridgeshare.jpa.ProduktMaßeinheit;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -26,14 +27,14 @@ public class ProduktBean {
      * @param maß Maßeinheit
      * @return Der angelegte Textschnippsel
      */
-    public Produkt createNewProduct(String name, String content, ProduktKategorie type, ProduktMaßeinheit maß) {
-        Produkt produkt = new Produkt(name, content, type, maß);
+    public Produkt createNewProduct(String name, String content, ProduktKategorie type, ProduktMaßeinheit maß, String ort, String owner) {
+        Produkt produkt = new Produkt(name, content, type, maß, ort, owner);
         return em.merge(produkt);
          
     }
     
-    public List<Produkt> findAllProducts() {
-        return em.createQuery("SELECT w FROM Produkt w ").getResultList();
+    public List<Produkt> findAllProducts(String ort) {
+        return em.createQuery("SELECT w FROM Produkt w WHERE w.ort LIKE :ort").setParameter("ort", ort).getResultList();
     }
     
     /**
@@ -46,19 +47,36 @@ public class ProduktBean {
     }
     
     /**
-     * Löschen eines Textschnippsels. (Müll leeren :-))
+     * Löschen eines Produkts
      * 
-     * @param id ID des zu löschenden Schnippsels
-     * @return Der gelöschte Schnippsel oder null
+     * @param id ID des zu löschenden Produkts
+     * @return Das gelöschte Produkt oder null
      */
-    public Produkt deleteProdukt(long id) {
-        Produkt produkt = em.find(Produkt.class, id);
-        
+    public Produkt deleteProdukt(Produkt produkt) {
         if (produkt != null) {
-            em.remove(produkt);
+            em.remove(em.merge(produkt));
         }
-        
         return produkt;
+    }
+   
+    
+    public Produkt findById(Long Id) {
+        Produkt produkt = em.find(Produkt.class, Id);
+        if (produkt == null) {
+            throw new EntityNotFoundException("Can't find Produkt for ID "
+                + Id);
+        }
+        return produkt;
+    }
+    
+    public Produkt changeKategorie(Produkt produkt) {
+        String ort = produkt.getOrt();
+        if(ort.equals("K")){
+                produkt.setOrt("E");
+        }else{
+            produkt.setOrt("K");
+        }
+        return em.merge(produkt);
     }
     
     /**

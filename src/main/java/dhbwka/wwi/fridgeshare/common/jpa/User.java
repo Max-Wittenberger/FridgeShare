@@ -15,6 +15,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
@@ -47,7 +49,7 @@ public class User implements Serializable {
     private String username;
     private String email;
     private String color;
-    
+
     public class Password {
         @Size(min = 6, max = 64, message = "Das Passwort muss zwischen 6 und 64 Zeichen lang sein.")
         public String password = "";
@@ -67,6 +69,8 @@ public class User implements Serializable {
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
 
+    @Column(name = "GRUPPEN")
+    List<String> gruppen = new ArrayList<>();
 
 
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
@@ -106,6 +110,7 @@ public class User implements Serializable {
     public void setColor(String color) {
         this.color = color;
     }
+
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Passwort setzen und prüfen">
@@ -175,6 +180,41 @@ public class User implements Serializable {
      */
     public boolean checkPassword(String password) {
         return this.passwordHash.equals(this.hashPassword(password));
+    }
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Zuordnung zu Gruppen">
+    /**
+     * @return Eine unveränderliche Liste aller Gruppen
+     */
+    public List<String> getGruppen() {
+        List<String> groupsCopy = new ArrayList<>();
+
+        this.gruppen.forEach((groupname) -> {
+            groupsCopy.add(groupname);
+        });
+
+        return groupsCopy;
+    }
+
+    /**
+     * Fügt den Benutzer einer weiteren Benutzergruppe hinzu.
+     *
+     * @param groupname Name der Benutzergruppe
+     */
+    public void addToGruppen(String groupname) {
+        if (!this.gruppen.contains(groupname)) {
+            this.gruppen.add(groupname);
+        }
+    }
+
+    /**
+     * Entfernt den Benutzer aus der übergebenen Benutzergruppe.
+     *
+     * @param groupname Name der Benutzergruppe
+     */
+    public void removeGruppe(String groupname) {
+        this.gruppen.remove(groupname);
     }
     //</editor-fold>
 

@@ -10,6 +10,7 @@
 package dhbwka.wwi.fridgeshare.jpa;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,6 +35,9 @@ public class Produkt implements Serializable {
     private ProduktKategorie type = ProduktKategorie.Sonstiges;
     private ProduktMaßeinheit maß = ProduktMaßeinheit.Stück;
     private String owner = "";
+    @Column(name = "ORT")
+    private String ort = "";
+    private String ower = "";
 
 
     //@Lob
@@ -43,15 +47,35 @@ public class Produkt implements Serializable {
     public Produkt() {
     }
     
-    public Produkt(String name, String menge, ProduktKategorie type, ProduktMaßeinheit maß) {
+    public Produkt(String name, String menge, ProduktKategorie type, ProduktMaßeinheit maß, String ort, String owner) {
         this.name = name;
         this.menge = menge;
         this.type = type;
         this.maß = maß;
+        this.ort = ort;
+        this.owner = owner;
+        
     }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
+    
+    public String getOwer() {
+        return ower;
+    }
+
+    public void setOwer(String ower) {
+        this.ower = ower;
+    }
+    
+        public String getOrt() {
+        return ort;
+    }
+
+    public void setOrt(String ort) {
+        this.ort = ort;
+    }
+    
     public Long getId() {
         return id;
     }

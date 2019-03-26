@@ -28,7 +28,7 @@ import javax.servlet.http.HttpSession;
 public class CreateServlet extends HttpServlet {
     
     @EJB
-    ProduktBean wasteBean;
+    ProduktBean produktBean;
    
     public static final String URL = "/app/new";
     
@@ -67,7 +67,13 @@ public class CreateServlet extends HttpServlet {
         form.setName(request.getParameter("name"));
         form.setMenge(request.getParameter("menge"));
         form.setType(request.getParameter("type"));
-        form.setMaß(request.getParameter("maß"));
+        form.setMaß(request.getParameter("mass"));
+        form.setOrt(request.getParameter("ort"));
+        
+        String[] values = request.getParameterValues("meine");
+            if(values == null){
+                form.setOwner(request.getParameter("owner"));
+            }
 
         form.checkValues();
         
@@ -82,7 +88,7 @@ public class CreateServlet extends HttpServlet {
         }
 
         // Eintrag speichern und zurück zur Startseite
-        this.wasteBean.createNewProduct(form.getName(), form.getMenge(), form.getProduktKategorie(), form.getProduktMaßeinheit());
+        this.produktBean.createNewProduct(form.getName(), form.getMenge(), form.getProduktKategorie(), form.getProduktMaßeinheit(), form.getOrt(), form.getOwner());
         response.sendRedirect(request.getContextPath() + KuehlschrankServlet.URL);
     }
     

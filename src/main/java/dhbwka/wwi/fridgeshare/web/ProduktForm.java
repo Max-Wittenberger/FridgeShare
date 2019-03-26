@@ -20,8 +20,26 @@ public class ProduktForm {
     private String menge = "";
     private String type = "";
     private String maß = "";
+    private String ort = "";
+    private String owner = ""; 
 
     //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
+        public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+    
+        public String getOrt() {
+        return ort;
+    }
+
+    public void setOrt(String ort) {
+        this.ort = ort;
+    }
+    
     public List<String> getErrors() {
         return errors;
     }

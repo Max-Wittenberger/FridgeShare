@@ -29,10 +29,10 @@ import javax.servlet.http.HttpServletResponse;
  * Startseite: Zeigt eine Übersicht der vorhandenen Textschnippsel sowie einen
  * Link zum Anlegen neuer Schnippsel.
  */
-@WebServlet(urlPatterns="/app/kuehlschrank")
-public class KuehlschrankServlet extends HttpServlet {
+@WebServlet(urlPatterns="/app/einkaufsliste")
+public class EinkaufslisteServlet extends HttpServlet {
     
-    public static final String URL = "/app/kuehlschrank";
+    public static final String URL = "/app/einkaufsliste";
     
     @EJB
     UserBean userBean;
@@ -46,7 +46,7 @@ public class KuehlschrankServlet extends HttpServlet {
         request.setAttribute("ProduktKategorie", ProduktKategorie.values());
         
         // Vorhandene Schnippsel einlesen und im Request Context ablegen
-       List<Produkt> alleProdukte = this.produktBean.findAllProducts("K");
+       List<Produkt> alleProdukte = this.produktBean.findAllProducts("E");
        request.setAttribute("alleProdukte", alleProdukte);
        
        User user = this.userBean.getCurrentUser();
@@ -54,7 +54,7 @@ public class KuehlschrankServlet extends HttpServlet {
        
         
         // Anfrage an die index.jsp weiterleiten
-        request.getRequestDispatcher("/WEB-INF/kuehlschrank.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/einkaufsliste.jsp").forward(request, response);
     }
     
         @Override
@@ -71,7 +71,7 @@ public class KuehlschrankServlet extends HttpServlet {
      } else if ("change".equals(action)) {
          this.produktBean.changeKategorie(produkt);
     }
-      response.sendRedirect(WebUtils.appUrl(request, KuehlschrankServlet.URL));     
+      response.sendRedirect(WebUtils.appUrl(request, EinkaufslisteServlet.URL));     
 
         
     }

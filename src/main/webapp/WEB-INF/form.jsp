@@ -30,7 +30,7 @@
                 <%-- Eingabefelder --%>
                 <label for="produkt_owner">Eigentümer:</label>
                 <div class="side-by-side">
-                <%-- <input type="text" name="task_owner" value="${produkt_form.values["task_owner"][0]}" readonly="readonly"> --%>
+                <input type="hidden" name="owner" value="${pageContext.request.userPrincipal.name}" readonly="readonly"> 
                 </div>
 
             
@@ -52,7 +52,7 @@
                     <form>
                           <div  style="display: inline-block"> 
                        <div class="onoffswitch">
-                            <input type="checkbox" name="fürmich" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                            <input type="checkbox" name="meine" class="onoffswitch-checkbox" id="myonoffswitch" checked>
                             <label class="onoffswitch-label" for="myonoffswitch">
                                  <div class="onoffswitch-inner"></div>
                                  <div class="onoffswitch-switch"></div>
@@ -73,12 +73,18 @@
                             <input name="menge" type="number" value="${produkt_form.menge}" min="1" placeholder="Menge" required>
                         </div>
                         <div class="form-group">
-                           <select name="maß">
+                           <select name="mass">
                             <c:forEach items="${produktMaßeinheit}" var="produktMaßeinheit">
                                 <option value="${produktMaßeinheit}" ${produkt_form.maß == wasteType ? 'selected' : ''}>${produktMaßeinheit.label}</option>
                             </c:forEach>
                             </select>
                         </div>
+                        <div class="form-group">
+                         <select name="ort">
+                            <option value="E"> Einkaufsliste</option>
+                            <option value="K"> Kühlschrank</option>
+                        </select>
+                        </div>    
                         <div class="form-group">
                           <button class="icon-pencil" type="submit" name="action" value="save">
                         Sichern
