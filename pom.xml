@@ -16,6 +16,8 @@
         <javaee.version>7.0</javaee.version>
     </properties>
     
+
+    
     <dependencies>
         <!-- Jakarta Eneterprise Edition APIs -->
         <dependency>
@@ -72,6 +74,11 @@
       <artifactId>surefire-testng</artifactId>
       <version>2.13</version>
     </dependency>
+<dependency>
+   <groupId>com.sun.mail</groupId>
+   <artifactId>javax.mail</artifactId>
+   <version>1.6.1</version>
+</dependency>
   </dependencies>
 </plugin>
             <plugin>

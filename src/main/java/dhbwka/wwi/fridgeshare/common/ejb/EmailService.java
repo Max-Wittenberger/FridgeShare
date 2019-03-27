@@ -9,8 +9,6 @@
  */
 package dhbwka.wwi.fridgeshare.common.ejb;
 
-import dhbwka.wwi.fridgeshare.common.jpa.User;
-
 /**
  *
  * @author maxwi
@@ -22,11 +20,8 @@ public class EmailService {
     
 
     public boolean sendMail(String email) {
-        return false;
+         
+        return true;
     }
-
-
-
-          
     
 }
