@@ -75,6 +75,10 @@ public class UserBean {
         return em.merge(user);
     }
 
+    public boolean getUser() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * Fehler: Der Benutzername ist bereits vergeben
      */
@@ -102,4 +106,13 @@ public class UserBean {
         em.merge(user);
     }
 
+    
+    @RolesAllowed("app-user")
+    public void changePassword(User user, String oldPassword, String newPassword) throws InvalidCredentialsException {
+        if (user == null || !user.checkPassword(oldPassword)) {
+            throw new InvalidCredentialsException("Benutzername oder Passwort sind falsch.");
+        }
+
+        user.setPassword(newPassword);
+    }
 }

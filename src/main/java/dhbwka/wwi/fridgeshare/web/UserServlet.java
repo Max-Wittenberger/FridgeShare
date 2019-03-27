@@ -45,9 +45,6 @@ public class UserServlet extends HttpServlet {
     ValidationBean validationBean;
     
     
-   
-    public static final String URL = "/app/user";
-    
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -71,47 +68,65 @@ public class UserServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
+
   // Formulareingaben auslesen        
         String username  = request.getParameter("signup_username");
-        String old_password = request.getParameter("_password1");
-        String password1 = request.getParameter("signup_password1");
-        String password2 = request.getParameter("signup_password2");
-        String email     = request.getParameter("email");
-        String color     = request.getParameter("color");
-        String gruppe    = request.getParameter("gruppe");
+        String old_password = request.getParameter("old_password");
+        String new_password1 = request.getParameter("new_password1");
+        String new_password2 = request.getParameter("new_password2");
+        String email        = request.getParameter("email");
+        String color        = request.getParameter("color");
+        String gruppe       = request.getParameter("gruppe");
         
+        User user = this.userBean.getCurrentUser();
+        user.setColor(color);
+        user.setEmail(email);
+        userBean.update(user);
         
-        User user = new User(username, password1, email, color, gruppe);
-        List<String> errors = this.validationBean.validate(user);
-        this.validationBean.validate(user.getPassword(), errors);
+        //Versuch von Passwort ändern
+    //    List<String> errors = this.validationBean.validate(user);
+     //   this.validationBean.validate(user.getPassword(), errors);
         
-        if ("gruppe_hinzu".equals(action)) {
-            this.userBean.addToGruppen(gruppe);
-        }else if("speichern".equals(action)){
-        // Eingaben prüfen
-        if (password1 != null && password2 != null && !password1.equals(password2)) {
-            errors.add("Die beiden Passwörter stimmen nicht überein.");
-        }
+     //    if (new_password1 != null && new_password2 != null && !new_password1.equals(new_password2)) {
+      //      errors.add("Die beiden Passwörter stimmen nicht überein.");
+      //  }
+         
+           // Neuen Benutzer anlegen
+    //    if (errors.isEmpty()) {
+    //        try {
+     //             userBean.changePassword(user, old_password, new_password2);
+      //      } catch (UserBean.InvalidCredentialsException ex) {
+      //         errors.add(ex.getMessage());
+     //       }
+     //   }
+      
+        
+      //  if ("gruppe_hinzu".equals(action)) {
+      //      this.userBean.addToGruppen(gruppe);
+      //  }else if("speichern".equals(action)){
         // Benutzer anpassen
-        if (errors.isEmpty()) {
-               this.userBean.update(user);
-        }
-    };
+       //        this.userBean.update(currentUser);
+        //    };
         
         // Weiter zur nächsten Seite
-        if (errors.isEmpty()) {
             // Keine Fehler: Startseite aufrufen
-            response.sendRedirect(WebUtils.appUrl(request, "/app/kuehlschrank"));
-        } else {
-            // Fehler: Formuler erneut anzeigen
-            FormValues formValues = new FormValues();
-            formValues.setValues(request.getParameterMap());
-            formValues.setErrors(errors);
+    //        response.sendRedirect(WebUtils.appUrl(request, "/app/kuehlschrank"));
             
-            HttpSession session = request.getSession();
-            session.setAttribute("signup_form", formValues);
+            // Weiter zur nächsten Seite
+  //      if (errors.isEmpty()) {
+            // Keine Fehler: Startseite aufrufen
+   //         request.login(username, new_password1);
+   //         response.sendRedirect(WebUtils.appUrl(request, "/app/kuehlschrank"));
+   //     } else {
+   //         // Fehler: Formuler erneut anzeigen
+   //         FormValues formValues = new FormValues();
+   //         formValues.setValues(request.getParameterMap());
+   //         formValues.setErrors(errors);
             
-            response.sendRedirect(request.getRequestURI());
-                }
+   //         HttpSession session = request.getSession();
+    //        session.setAttribute("signup_form", formValues);
+            
+      //      response.sendRedirect(WebUtils.appUrl(request, "/app/user"));
+     //   }
     }  
 }

@@ -28,9 +28,20 @@
                         <div class="form-group">
                              <input class="" type="color" name="color" value="${user.color}" placeholder="Deine persönliche Farbe">
                         </div>
+                        <%--
+                        <div class="form-group">
+                             <input class="" type="text" name="old_passwort" placeholder="Altes Passwort *" required>
+                        </div>
+                        <div class="form-group">
+                             <input class="" type="text" name="new_passwort1" placeholder="Neues Passwort *" required>
+                        </div>
+                        <div class="form-group">
+                             <input class="" type="text" name="new_passwort2" placeholder="Neues Passwort (wdh.) *" required>
+                        </div>
+                        --%>
                         <div class="form-group">
                             <input class="" type="text" name="gruppe" placeholder="Gruppe">
-                        </div>
+                        </div> 
                         <select>
                             <c:forEach items="${gruppen}" var="gruppe">
                                 <option value="${gruppe}">${gruppe}</option>

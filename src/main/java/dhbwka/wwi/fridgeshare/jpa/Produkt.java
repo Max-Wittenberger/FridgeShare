@@ -37,7 +37,6 @@ public class Produkt implements Serializable {
     private String owner = "";
     @Column(name = "ORT")
     private String ort = "";
-    private String ower = "";
 
 
     //@Lob
@@ -60,13 +59,7 @@ public class Produkt implements Serializable {
     
     //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
     
-    public String getOwer() {
-        return ower;
-    }
 
-    public void setOwer(String ower) {
-        this.ower = ower;
-    }
     
         public String getOrt() {
         return ort;

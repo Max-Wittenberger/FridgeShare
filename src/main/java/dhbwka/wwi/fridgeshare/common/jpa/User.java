@@ -9,6 +9,7 @@
  */
 package dhbwka.wwi.fridgeshare.common.jpa;
 
+import dhbwka.wwi.fridgeshare.common.ejb.UserBean.InvalidCredentialsException;
 import java.awt.Color;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
 import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -171,8 +173,8 @@ public class User implements Serializable {
      * Nur für die Validierung bei einer Passwortänderung!
      * @return Neues, beim Speichern gesetztes Passwort
      */
-    public Password getPassword() {
-        return this.password;
+    public String getPassword() {
+        return this.password.password;
     }
     
     /**
@@ -185,6 +187,7 @@ public class User implements Serializable {
         return this.passwordHash.equals(this.hashPassword(password));
     }
     //</editor-fold>
+    
     
     //<editor-fold defaultstate="collapsed" desc="Zuordnung zu Gruppen">
     /**
