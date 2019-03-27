@@ -63,7 +63,7 @@ public class SignUpServlet extends HttpServlet {
         String gruppe    = request.getParameter("gruppe");
         
         // Eingaben prüfen
-        User user = new User(username, password1, email, color);
+        User user = new User(username, password1, email, color, gruppe);
         List<String> errors = this.validationBean.validate(user);
         this.validationBean.validate(user.getPassword(), errors);
         

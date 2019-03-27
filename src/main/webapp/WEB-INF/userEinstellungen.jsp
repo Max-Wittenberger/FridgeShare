@@ -28,14 +28,20 @@
                         <div class="form-group">
                              <input class="" type="color" name="color" value="${user.color}" placeholder="Deine persönliche Farbe">
                         </div>
-                         
-                            <c:forEach items="${gruppen}" var="gruppe">
-                                <div>${gruppe} bin da</div>
-                            </c:forEach>
-                     
                         <div class="form-group">
-                            <button class="btnSubmit" type="submit">
-                               Speichern
+                            <input class="" type="text" name="gruppe" placeholder="Gruppe">
+                        </div>
+                        <select>
+                            <c:forEach items="${gruppen}" var="gruppe">
+                                <option value="${gruppe}">${gruppe}</option>
+                            </c:forEach>
+                        </select>
+                        <div class="form-group">
+                            <button class="btnSubmit" type="submit" name="action" value="speichern">
+                               Speichern/Hinzufügen
+                            </button>
+                            <button class="btnSubmit" type="submit" name="action" value="gruppe_entfernen">
+                               Gruppe löschen
                             </button>
 
                        </form>

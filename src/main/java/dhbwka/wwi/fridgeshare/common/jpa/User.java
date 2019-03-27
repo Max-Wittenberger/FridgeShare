@@ -77,12 +77,15 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String username, String password, String email, String color) {
+    public User(String username, String password, String email, String color, String gruppe) {
         this.username = username;
         this.password.password = password;
         this.passwordHash = this.hashPassword(password);
         this.email = email;
         this.color = color;
+        if(!gruppe.equals("")){
+        this.gruppen.add(gruppe);
+        }
     }
     //</editor-fold>
 

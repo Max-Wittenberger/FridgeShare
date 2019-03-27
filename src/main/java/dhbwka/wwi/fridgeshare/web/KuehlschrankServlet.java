@@ -49,6 +49,8 @@ public class KuehlschrankServlet extends HttpServlet {
        List<Produkt> alleProdukte = this.produktBean.findAllProducts("K");
        request.setAttribute("alleProdukte", alleProdukte);
        
+
+       
        User user = this.userBean.getCurrentUser();
        request.setAttribute("user", user);
        
