@@ -55,7 +55,7 @@ public class UserServlet extends HttpServlet {
         
         User user = this.userBean.getCurrentUser();
         request.setAttribute("user", user);
-        request.setAttribute("gruppen", user.getGruppen());
+        // request.setAttribute("gruppen", user.getGruppen());
         
         
         // Anfrage an die JSP weiterleiten
@@ -78,10 +78,16 @@ public class UserServlet extends HttpServlet {
         String color        = request.getParameter("color");
         String gruppe       = request.getParameter("gruppe");
         
+        
+        if("speichern".equals(action)){
         User user = this.userBean.getCurrentUser();
         user.setColor(color);
         user.setEmail(email);
         userBean.update(user);
+        }else if("gruppe_hinzu".equals(action)){
+           // userBean.addToGruppen(gruppe);
+        }
+        
         
         //Versuch von Passwort ändern
     //    List<String> errors = this.validationBean.validate(user);

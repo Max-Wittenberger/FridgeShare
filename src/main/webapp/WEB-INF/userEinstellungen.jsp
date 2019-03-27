@@ -40,18 +40,19 @@
                         </div>
                         --%>
                         <div class="form-group">
-                            <input class="" type="text" name="gruppe" placeholder="Gruppe">
-                        </div> 
+                            <button class="btnSubmit" type="submit" name="action" value="speichern">
+                               Speichern
+                            </button>
                         <select>
                             <c:forEach items="${gruppen}" var="gruppe">
                                 <option value="${gruppe}">${gruppe}</option>
                             </c:forEach>
                         </select>
                         <div class="form-group">
-                            <button class="btnSubmit" type="submit" name="action" value="speichern">
-                               Speichern
-                            </button><button class="btnSubmit" type="submit" name="action" value="gruppe_hinzu">
-                               Hinzufügen
+                            <input class="" type="text" name="gruppe" placeholder="Gruppe">
+                        </div> 
+                            <button class="btnSubmit" type="submit" name="action" value="gruppe_hinzu">
+                               Gruppe hinzufügen
                             </button>
                             <button class="btnSubmit" type="submit" name="action" value="gruppe_entfernen">
                                Gruppe löschen

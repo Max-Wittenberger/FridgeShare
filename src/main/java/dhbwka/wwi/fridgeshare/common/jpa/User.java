@@ -28,6 +28,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -51,7 +52,10 @@ public class User implements Serializable {
     private String username;
     private String email;
     private String color;
-
+    
+    @ManyToMany(mappedBy = "user")
+    private Collection<Gruppe> gruppe = new ArrayList<Gruppe>();
+    
     public class Password {
         @Size(min = 6, max = 64, message = "Das Passwort muss zwischen 6 und 64 Zeichen lang sein.")
         public String password = "";
@@ -71,8 +75,6 @@ public class User implements Serializable {
     @Column(name = "GROUPNAME")
     List<String> groups = new ArrayList<>();
 
-    @Column(name = "GRUPPEN")
-    List<String> gruppen = new ArrayList<String>();
 
 
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
@@ -85,13 +87,19 @@ public class User implements Serializable {
         this.passwordHash = this.hashPassword(password);
         this.email = email;
         this.color = color;
-        if(!(gruppe.equals(""))){
-            this.gruppen.add(gruppe);
-        }
+        
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
+        public Collection<Gruppe> getGruppe() {
+        return gruppe;
+    }
+
+    public void setGruppe(Collection<Gruppe> gruppe) {
+        this.gruppe = gruppe;
+    }
+    
     public String getUsername() {
         return username;
     }
@@ -189,40 +197,7 @@ public class User implements Serializable {
     //</editor-fold>
     
     
-    //<editor-fold defaultstate="collapsed" desc="Zuordnung zu Gruppen">
-    /**
-     * @return Eine unveränderliche Liste aller Gruppen
-     */
-    public List<String> getGruppen() {
-        List<String> groupsCopy = new ArrayList<>();
 
-        this.gruppen.forEach((groupname) -> {
-            groupsCopy.add(groupname);
-        });
-
-        return groupsCopy;
-    }
-
-    /**
-     * Fügt den Benutzer einer weiteren Benutzergruppe hinzu.
-     *
-     * @param groupname Name der Benutzergruppe
-     */
-    public void addToGruppen(String groupname) {
-        if (!this.gruppen.contains(groupname)) {
-            this.gruppen.add(groupname);
-        }
-    }
-
-    /**
-     * Entfernt den Benutzer aus der übergebenen Benutzergruppe.
-     *
-     * @param groupname Name der Benutzergruppe
-     */
-    public void removeGruppe(String groupname) {
-        this.gruppen.remove(groupname);
-    }
-    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Zuordnung zu Benutzergruppen">
     /**

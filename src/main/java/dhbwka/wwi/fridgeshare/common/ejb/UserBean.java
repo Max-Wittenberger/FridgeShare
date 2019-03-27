@@ -50,7 +50,6 @@ public class UserBean {
         }
 
         User user = new User(username, password, email, color,gruppe);
-        user.addToGruppen(gruppe);
         user.addToGroup("app-user");
         em.persist(user);
         
@@ -100,11 +99,6 @@ public class UserBean {
         }
     }
     
-    public void addToGruppen(String groupname) {
-        User user = this.getCurrentUser();
-        user.addToGroup(groupname);
-        em.merge(user);
-    }
 
     
     @RolesAllowed("app-user")

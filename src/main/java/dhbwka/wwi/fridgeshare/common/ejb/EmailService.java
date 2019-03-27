@@ -15,6 +15,7 @@ package dhbwka.wwi.fridgeshare.common.ejb;
  */
 public class EmailService {
 
+
     public EmailService() {
     }
     
