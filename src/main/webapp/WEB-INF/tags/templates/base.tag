@@ -42,7 +42,7 @@
   <a href="<c:url value="/app/kuehlschrank"/>">FridgeShare</a>
   <a href="<c:url value="/app/kuehlschrank"/>">Kühlschrank</a>
   <a href="<c:url value="/app/einkaufsliste"/>">Einkaufswagen</a>
-  <a href="<c:url value="/app/new"/>">Produkt anlegen</a>
+  <a href="<c:url value="/app/new/"/>">Produkt anlegen</a>
   <a href="<c:url value="/app/user"/>">Profileinstellungen</a>
   <a href="<c:url value="/logout/"/>">Logout ${pageContext.request.userPrincipal.name}</a>
 </div>

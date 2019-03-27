@@ -60,12 +60,10 @@
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                             </div>  
-                            <div class="col-2">
-                                <a href="">
-                                    <button type="submit" name="action" value="edit">
+                            <div class="col-2">  
+                                    <button type="button" onclick="window.location.href='<c:url value="/app/new/${produkt.id}/"/>'">
                                         <i class="fas fa-cogs"></i>
                                     </button>
-                                </a>
                             </div>
                             </div>
                             </form>

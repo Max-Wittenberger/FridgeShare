@@ -38,12 +38,13 @@
                         </select>
                         <div class="form-group">
                             <button class="btnSubmit" type="submit" name="action" value="speichern">
-                               Speichern/Hinzufügen
+                               Speichern
+                            </button><button class="btnSubmit" type="submit" name="action" value="gruppe_hinzu">
+                               Hinzufügen
                             </button>
                             <button class="btnSubmit" type="submit" name="action" value="gruppe_entfernen">
                                Gruppe löschen
                             </button>
-
                        </form>
                 </div>
              </div> 

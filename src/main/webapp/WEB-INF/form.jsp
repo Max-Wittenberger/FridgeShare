@@ -52,7 +52,11 @@
                     <form>
                           <div  style="display: inline-block"> 
                        <div class="onoffswitch">
-                            <input type="checkbox" name="meine" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                           <input type="checkbox" name="meine" class="onoffswitch-checkbox" id="myonoffswitch" 
+                                  <c:if test="${produkt.owner != pageContext.request.userPrincipal.name}">
+                                      checked
+                                  </c:if>
+                                  >
                             <label class="onoffswitch-label" for="myonoffswitch">
                                  <div class="onoffswitch-inner"></div>
                                  <div class="onoffswitch-switch"></div>
@@ -60,29 +64,29 @@
                         </div>
                               </div>
                         <div class="form-group">
-                            <input name="name" value="${produkt_form.name}" placeholder="Produktname" required>
+                            <input name="name" value="${produkt.name}" placeholder="Produktname" required>
                         </div>
                         <div class="form-group">
                            <select name="type">
                             <c:forEach items="${produktKategorie}" var="produktKategorie">
-                                <option selected="Sonstiges" value="${produktKategorie}" ${produkt_form.type == wasteType ? 'selected' : ''}>${produktKategorie.label}</option>
+                                <option value="${produktKategorie}" ${produkt.type.label == produktKategorie ? 'selected' : ''}>${produktKategorie.label}</option>
                             </c:forEach>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input name="menge" type="number" value="${produkt_form.menge}" min="1" placeholder="Menge" required>
+                            <input name="menge" type="number" value="${produkt.menge}" min="1" placeholder="Menge" required>
                         </div>
                         <div class="form-group">
-                           <select name="mass">
+                            <select name="mass">
                             <c:forEach items="${produktMaßeinheit}" var="produktMaßeinheit">
-                                <option value="${produktMaßeinheit}" ${produkt_form.maß == wasteType ? 'selected' : ''}>${produktMaßeinheit.label}</option>
+                                <option value="${produktMaßeinheit}" ${produkt.maß == produktMaßeinheit ? 'selected' : ''}>${produktMaßeinheit.label}</option>
                             </c:forEach>
                             </select>
                         </div>
                         <div class="form-group">
-                         <select name="ort">
-                            <option value="E"> Einkaufsliste</option>
-                            <option value="K"> Kühlschrank</option>
+                        <select name="ort">
+                            <option value="E" ${produkt.ort == "E" ? 'selected' : ''}> Einkaufsliste</option>
+                            <option value="K" ${produkt.ort == "K" ? 'selected' : ''}> Kühlschrank</option>
                         </select>
                         </div>    
                         <div class="form-group">

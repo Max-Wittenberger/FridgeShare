@@ -26,19 +26,19 @@
                        <form>
                         <input type="hidden" name="csrf_token" value="${csrf_token}">
                         <div class="form-group">
-                             <input class="" type="text" name="signup_username" value="${signup_form.values["signup_username"][0]}" placeholder="Benutzername *">
+                             <input class="" type="text" name="signup_username" value="" placeholder="Benutzername *">
                         </div>
                         <div class="form-group">
-                             <input class="" type="email" name="email" value="${signup_form.email}" placeholder="E-mail *">
+                             <input class="" type="email" name="email" value="" placeholder="E-mail *">
                         </div>
                         <div class="form-group">
-                             <input class="" type="color" name="color" value="${signup_form.color}" placeholder="Deine persönliche Farbe">
+                             <input class="" type="color" name="color" value="" placeholder="Deine persönliche Farbe">
                         </div>
                         <div class="form-group">
-                             <input class="" type="password" name="signup_password1" value="${signup_form.values["signup_password1"][0]}" placeholder="Passwort *" >
+                             <input class="" type="password" name="signup_password1" value="" placeholder="Passwort *" >
                         </div>
                         <div class="form-group">
-                             <input class="" type="password" name="signup_password2" value="${signup_form.values["signup_password2"][0]}" placeholder="Passwort (wdh.) *">
+                             <input class="" type="password" name="signup_password2" value="" placeholder="Passwort (wdh.) *">
                         </div>
                         <div class="form-group">
                              <input class="" type="text" name="gruppe" placeholder="Deine Gruppe" required>

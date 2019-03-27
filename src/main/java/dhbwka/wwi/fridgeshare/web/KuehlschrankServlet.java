@@ -72,7 +72,7 @@ public class KuehlschrankServlet extends HttpServlet {
             this.produktBean.deleteProdukt(produkt);
      } else if ("change".equals(action)) {
          this.produktBean.changeKategorie(produkt);
-    }
+     }
       response.sendRedirect(WebUtils.appUrl(request, KuehlschrankServlet.URL));     
 
         

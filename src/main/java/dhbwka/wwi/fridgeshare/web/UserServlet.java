@@ -56,7 +56,7 @@ public class UserServlet extends HttpServlet {
         // damit es beim Erstaufruf nicht zum Absturz kommt
         HttpSession session = request.getSession();
         
-         User user = this.userBean.getCurrentUser();
+        User user = this.userBean.getCurrentUser();
         request.setAttribute("user", user);
         request.setAttribute("gruppen", user.getGruppen());
         
@@ -70,7 +70,7 @@ public class UserServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-   
+        String action = request.getParameter("action");
   // Formulareingaben auslesen        
         String username  = request.getParameter("signup_username");
         String old_password = request.getParameter("_password1");
@@ -80,19 +80,23 @@ public class UserServlet extends HttpServlet {
         String color     = request.getParameter("color");
         String gruppe    = request.getParameter("gruppe");
         
-        // Eingaben prüfen
+        
         User user = new User(username, password1, email, color, gruppe);
         List<String> errors = this.validationBean.validate(user);
         this.validationBean.validate(user.getPassword(), errors);
         
+        if ("gruppe_hinzu".equals(action)) {
+            this.userBean.addToGruppen(gruppe);
+        }else if("speichern".equals(action)){
+        // Eingaben prüfen
         if (password1 != null && password2 != null && !password1.equals(password2)) {
             errors.add("Die beiden Passwörter stimmen nicht überein.");
         }
-        
         // Benutzer anpassen
         if (errors.isEmpty()) {
                this.userBean.update(user);
         }
+    };
         
         // Weiter zur nächsten Seite
         if (errors.isEmpty()) {

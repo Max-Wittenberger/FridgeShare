@@ -49,9 +49,11 @@ public class UserBean {
             throw new UserAlreadyExistsException("Der Benutzername $B ist bereits vergeben.".replace("$B", username));
         }
 
-        User user = new User(username, password, email, color, gruppe);
+        User user = new User(username, password, email, color,gruppe);
+        user.addToGruppen(gruppe);
         user.addToGroup("app-user");
         em.persist(user);
+        
     }
     
     /**
@@ -92,6 +94,12 @@ public class UserBean {
         public InvalidCredentialsException(String message) {
             super(message);
         }
+    }
+    
+    public void addToGruppen(String groupname) {
+        User user = this.getCurrentUser();
+        user.addToGroup(groupname);
+        em.merge(user);
     }
 
 }

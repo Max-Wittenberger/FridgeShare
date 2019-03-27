@@ -54,7 +54,7 @@ public class EinkaufslisteServlet extends HttpServlet {
        
         
         // Anfrage an die index.jsp weiterleiten
-        request.getRequestDispatcher("/WEB-INF/einkaufsliste.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/kuehlschrank.jsp").forward(request, response);
     }
     
         @Override

@@ -70,7 +70,7 @@ public class User implements Serializable {
     List<String> groups = new ArrayList<>();
 
     @Column(name = "GRUPPEN")
-    List<String> gruppen = new ArrayList<>();
+    List<String> gruppen = new ArrayList<String>();
 
 
     //<editor-fold defaultstate="collapsed" desc="Konstruktoren">
@@ -83,8 +83,8 @@ public class User implements Serializable {
         this.passwordHash = this.hashPassword(password);
         this.email = email;
         this.color = color;
-        if(!gruppe.equals("")){
-        this.gruppen.add(gruppe);
+        if(!(gruppe.equals(""))){
+            this.gruppen.add(gruppe);
         }
     }
     //</editor-fold>
