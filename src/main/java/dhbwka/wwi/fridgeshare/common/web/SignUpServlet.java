@@ -88,7 +88,7 @@ public class SignUpServlet extends HttpServlet {
         } else {
             // Fehler: Formuler erneut anzeigen
             FormValues formValues = new FormValues();
-            formValues.setValues(request.getParameterMap());
+            //formValues.setValues(request.getParameterMap());
             formValues.setErrors(errors);
             
             HttpSession session = request.getSession();

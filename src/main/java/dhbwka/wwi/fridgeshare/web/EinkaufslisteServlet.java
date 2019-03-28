@@ -13,6 +13,7 @@ import dhbwka.wwi.fridgeshare.common.ejb.ProduktBean;
 import dhbwka.wwi.fridgeshare.common.ejb.UserBean;
 import dhbwka.wwi.fridgeshare.common.jpa.User;
 import dhbwka.wwi.fridgeshare.common.web.WebUtils;
+import dhbwka.wwi.fridgeshare.email.EmailService;
 import dhbwka.wwi.fridgeshare.jpa.Produkt;
 import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
 import java.io.IOException;
@@ -51,6 +52,8 @@ public class EinkaufslisteServlet extends HttpServlet {
        
        User user = this.userBean.getCurrentUser();
        request.setAttribute("user", user);
+       String emailButtonVisibility = "hidden";
+       request.setAttribute("Email", emailButtonVisibility);
        
         
         // Anfrage an die index.jsp weiterleiten
@@ -70,6 +73,8 @@ public class EinkaufslisteServlet extends HttpServlet {
             this.produktBean.deleteProdukt(produkt);
      } else if ("change".equals(action)) {
          this.produktBean.changeKategorie(produkt);
+    } else if ("email".equals(produkt)){
+         //  EmailService.sendMail("maxwittenberger@gmail.com", "I bims", "Hallo");
     }
       response.sendRedirect(WebUtils.appUrl(request, EinkaufslisteServlet.URL));     
 

@@ -10,6 +10,7 @@
 package dhbwka.wwi.fridgeshare.common.ejb;
 
 import dhbwka.wwi.fridgeshare.common.jpa.User;
+import dhbwka.wwi.fridgeshare.email.EmailService;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -34,7 +35,7 @@ public class EmailServiceTest {
         System.out.println("emailSend");
         es = new EmailService();
         user = new User("Max", "1234" , "Test@mail.com", "#ffff" , "testGruppe");
-        boolean result = es.sendMail(user.getEmail());
+       // boolean result = es.sendMail(user.getEmail());
         assertTrue(true);
     }    
 

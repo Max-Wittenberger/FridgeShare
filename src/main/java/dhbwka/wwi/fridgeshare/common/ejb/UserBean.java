@@ -1,12 +1,3 @@
-/*
- * Copyright © 2018 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
 package dhbwka.wwi.fridgeshare.common.ejb;
 
 import dhbwka.wwi.fridgeshare.common.jpa.User;
@@ -45,9 +36,9 @@ public class UserBean {
      * @throws UserBean.UserAlreadyExistsException
      */
     public void signup(String username, String password, String email, String color, String gruppe) throws UserAlreadyExistsException {
-        if (em.find(User.class, username) != null) {
-            throw new UserAlreadyExistsException("Der Benutzername $B ist bereits vergeben.".replace("$B", username));
-        }
+        //if (em.find(User.class, username) != null) {
+        //    throw new UserAlreadyExistsException("Der Benutzername $B ist bereits vergeben.".replace("$B", username));
+        // }
 
         User user = new User(username, password, email, color,gruppe);
         user.addToGroup("app-user");
