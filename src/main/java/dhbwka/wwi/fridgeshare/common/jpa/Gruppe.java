@@ -28,10 +28,10 @@ public class Gruppe implements Serializable {
     private String name;
     
     
-    @ManyToMany
-    @JoinTable(name = "FRIDGESHARE_USER", joinColumns = @JoinColumn(name = "USERNAME"), 
-            inverseJoinColumns = @JoinColumn(name = "GRUPPEID") )
-    private Collection<User> user = new ArrayList<User>();
+  //  @ManyToMany
+  //  @JoinTable(name = "FRIDGESHARE_USER", joinColumns = @JoinColumn(name = "USERNAME"), 
+   //         inverseJoinColumns = @JoinColumn(name = "GRUPPEID") )
+  // private Collection<User> user = new ArrayList<User>();
 
     
     
@@ -39,13 +39,13 @@ public class Gruppe implements Serializable {
         this.name = name;
     }
     
-    public Collection<User> getUser() {
-        return user;
-    }
+   // public Collection<User> getUser() {
+    //    return user;
+   // }
 
-    public void setUser(Collection<User> user) {
-        this.user = user;
-    }
+    // public void setUser(Collection<User> user) {
+    //    this.user = user;
+    // }
 
     public String getName() {
         return name;

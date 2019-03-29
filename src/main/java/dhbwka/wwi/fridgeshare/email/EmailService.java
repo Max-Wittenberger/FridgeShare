@@ -1,7 +1,6 @@
 package dhbwka.wwi.fridgeshare.email;
 
-public class EmailService {
-/**
+
 import java.io.File;
 import java.util.Properties;
 
@@ -21,7 +20,7 @@ import javax.mail.internet.MimeMultipart;
 
 
 
-
+public class EmailService {
 
 	private static Properties getMailProperties() {
 
@@ -101,6 +100,6 @@ import javax.mail.internet.MimeMultipart;
 	}
 
 	
-	**/
+	
 }
 

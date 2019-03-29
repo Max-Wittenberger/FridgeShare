@@ -53,8 +53,8 @@ public class User implements Serializable {
     private String email;
     private String color;
     
-    @ManyToMany(mappedBy = "user")
-    private Collection<Gruppe> gruppe = new ArrayList<Gruppe>();
+  //  @ManyToMany(mappedBy = "user")
+  //  private Collection<Gruppe> gruppe = new ArrayList<Gruppe>();
     
     public class Password {
         @Size(min = 6, max = 64, message = "Das Passwort muss zwischen 6 und 64 Zeichen lang sein.")
@@ -92,13 +92,13 @@ public class User implements Serializable {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Setter und Getter">
-        public Collection<Gruppe> getGruppe() {
-        return gruppe;
-    }
+    //    public Collection<Gruppe> getGruppe() {
+   //     return gruppe;
+   // }
 
-    public void setGruppe(Collection<Gruppe> gruppe) {
-        this.gruppe = gruppe;
-    }
+  //  public void setGruppe(Collection<Gruppe> gruppe) {
+ //       this.gruppe = gruppe;
+ //   }
     
     public String getUsername() {
         return username;
