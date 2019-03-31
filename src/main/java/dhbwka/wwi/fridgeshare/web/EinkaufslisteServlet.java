@@ -19,7 +19,10 @@ import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,6 +68,7 @@ public class EinkaufslisteServlet extends HttpServlet {
             throws ServletException, IOException {
 
         request.setCharacterEncoding("utf-8");
+        User user = this.userBean.getCurrentUser();
 
        String action = request.getParameter("action");
        Long id = Long.parseLong(request.getParameter("idOfProduct"));
@@ -73,8 +77,13 @@ public class EinkaufslisteServlet extends HttpServlet {
             this.produktBean.deleteProdukt(produkt);
      } else if ("change".equals(action)) {
          this.produktBean.changeKategorie(produkt);
-    } else if ("email".equals(produkt)){
-         //  EmailService.sendMail("maxwittenberger@gmail.com", "I bims", "Hallo");
+    } else if ("email".equals(action)){
+            try {
+                
+                EmailService.sendEmailTo(user.getEmail());
+            } catch (MessagingException ex) {
+                Logger.getLogger(EinkaufslisteServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
       response.sendRedirect(WebUtils.appUrl(request, EinkaufslisteServlet.URL));     
 

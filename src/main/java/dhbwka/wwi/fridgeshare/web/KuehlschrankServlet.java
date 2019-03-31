@@ -75,8 +75,8 @@ public class KuehlschrankServlet extends HttpServlet {
             this.produktBean.deleteProdukt(produkt);
      } else if ("change".equals(action)) {
          this.produktBean.changeKategorie(produkt);
-     } else if ("email".equals(produkt)){
-           //EmailService.sendMail("maxwittenberger@gmail.com", "I bims", "Hallo");
+     } else if ("email".equals(action)){
+         //  EmailService.sendMail("maxwittenberger@gmail.com", "I bims", "Hallo");
     }
       response.sendRedirect(WebUtils.appUrl(request, KuehlschrankServlet.URL));     
 

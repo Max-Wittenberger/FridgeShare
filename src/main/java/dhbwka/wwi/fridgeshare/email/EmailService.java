@@ -1,105 +1,73 @@
 package dhbwka.wwi.fridgeshare.email;
 
-
-import java.io.File;
+ 
+import java.io.IOException;
 import java.util.Properties;
-
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-
-
-
+ 
+/**
+ * @author Crunchify.com
+ * 
+ */
+ 
 public class EmailService {
-
-	private static Properties getMailProperties() {
-
-		// Die Properties der JVM holen
-		Properties properties = System.getProperties();
-
-		// Postausgangsserver
-		properties.setProperty("mail.smtp.host", "993");
-
-		// Benutzername
-		properties.setProperty("mail.user", "FridgeShareProject@gmail.com");
-
-		// Passwort
-		properties.setProperty("mail.password", "TyBtnmSV2MGQfdj");
-
-		// Einstellungen für die SSL Verschlüsselte übermittlung von E-Mails
-		properties.put("mail.smtps.auth", "true");
-		properties.put("mail.smtps.**ssl.enable", "true");
-		properties.put("mail.smtps.**ssl.required", "true");
-		return properties;
+ 
+	static Properties mailServerProperties;
+	static Session getMailSession;
+	static MimeMessage generateMailMessage;
+        static String pdfPath = "C:\\Users\\maxwi\\Desktop\\4.Semester\\FRIDGESHARE\\FRIDGESHARE\\FridgeShare\\src\\main\\webapp\\Einkaufsliste.pdf";
+ 
+	public static void sendEmailTo(String emailTo ) throws AddressException, MessagingException, IOException {
+		generateAndSendEmail(emailTo);
+		System.out.println("\n\n ===> Your Java Program has just sent an Email successfully. Check your email..");
 	}
-
-	public static void sendMail(String empfaenger, String betreff, String text ) {
-		// Versender der E-Mail
-		String versender = "FridgeShareProject@gmail.com";
-
-		// Erstellt ein Session Objekt mit der E-Mail Konfiguration
-		Session session = Session.getDefaultInstance(getMailProperties());
-		// Optional, schreibt auf die Konsole / in das Log, die Ausgabe des
-		// E-Mail Servers, dieses kann bei einer Fehleranalyse sehr Hilfreich
-		// sein.
-		session.setDebug(true);
-		try {
-			// Erstellt ein MimeMessage Objekt.
-			MimeMessage message = new MimeMessage(session);
-
-			// Setzt die E-Mail Adresse des Versenders in den E-Mail Header
-			message.setFrom(new InternetAddress(versender));
-
-			// Setzt die E-Mail Adresse des Empfängers in den E-Mail Header
-			// hier können beliegig viele E-Mail Adressen hinzugefügt werden
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(empfaenger));
-
-			// Der Empfänger erhält eine Kopie dieser E-Mail
-			// message.addRecipient(Message.RecipientType.CC, new
-			// InternetAddress(empfaenger));
-
-			// Der Empfänger erhält eine "Blindkopie" dieser E-Mail d.h. er
-			// sieht nicht wer diese E-Mail noch erhalten hat.
-			// message.addRecipient(Message.RecipientType.BCC, new
-			// InternetAddress(empfaenger));
-
-			// Setzt den Betreff der E-Mail
-			message.setSubject(betreff);
-
-			// Erstellen des "Containers" für die Nachricht
-			BodyPart messageBodyPart = new MimeBodyPart();
-
-			// Setzen des Textes
-			messageBodyPart.setText(text);
-
-			// Erstellen eines Multipart Objektes für das ablegen des Textes
-			Multipart multipart = new MimeMultipart();
-			// Setzen des Textes
-			multipart.addBodyPart(messageBodyPart);
-
-			
-
-			// Setzt den Inhalt der E-Mail, Text + Dateianhänge
-			message.setContent(multipart);
-
-			// E-Mail versenden
-			Transport.send(message);
-		} catch (MessagingException mex) {
-			mex.printStackTrace();
-		}
+ 
+	public static void generateAndSendEmail(String emailTo) throws AddressException, MessagingException, IOException {
+ 
+		// Step1 Mail Properties einrichten
+		System.out.println("\n 1st ===> setup Mail Server Properties..");
+		mailServerProperties = System.getProperties();
+		mailServerProperties.put("mail.smtp.port", "587");
+		mailServerProperties.put("mail.smtp.auth", "true");
+		mailServerProperties.put("mail.smtp.starttls.enable", "true");
+		System.out.println("Mail Server Properties have been setup successfully..");
+ 
+		// Step2 Email Inhalt füllen (Absender, sowie Inhalt)
+		System.out.println("\n\n 2nd ===> get Mail Session..");
+		getMailSession = Session.getDefaultInstance(mailServerProperties, null);
+		generateMailMessage = new MimeMessage(getMailSession);
+		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailTo));
+		//generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("test2@crunchify.com"));
+		generateMailMessage.setSubject("Dein Einkaufszettel | FridgeShare");
+                
+		//String emailBody = "Hallo ";
+		//generateMailMessage.setContent(emailBody, "text/html");
+                //add PDF to email
+                Multipart multipart = new MimeMultipart();
+                MimeBodyPart attachPart = new MimeBodyPart();
+                attachPart.attachFile(pdfPath);
+                multipart.addBodyPart(attachPart);
+                generateMailMessage.setContent(multipart, "text/html");
+		System.out.println("Mail Session has been created successfully..");
+ 
+		// Step3 einloggen und email senden
+		System.out.println("\n\n 3rd ===> Get Session and Send mail");
+		Transport transport = getMailSession.getTransport("smtp");
+ 
+		transport.connect("smtp.gmail.com", "FridgeShareProject@gmail.com", "TyBtnmSV2MGQfdj");
+		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
+		transport.close();
 	}
-
-	
-	
 }
+
+
 

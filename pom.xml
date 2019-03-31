@@ -4,11 +4,10 @@
 
     <groupId>dhbwka.wwi.vertsys.javaee</groupId>
     <artifactId>FridgeShare</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>FridgeShare</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -17,32 +16,21 @@
         <javaee.version>7.0</javaee.version>
     </properties>
     
-
-    
     <dependencies>
         <!-- Jakarta Eneterprise Edition APIs -->
         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>5.3.1</version>
+            <version>5.4.0</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-    <groupId>com.syncthemall</groupId>
-    <artifactId>boilerpipe</artifactId>
-    <version>1.2.1</version>
-</dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>5.3.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.3.1</version>
-            <scope>test</scope>
+            <type>jar</type>
         </dependency>
         <dependency>
             <groupId>javax</groupId>
@@ -50,49 +38,17 @@
             <version>${javaee.version}</version>
             <scope>provided</scope>
         </dependency>
-
-            <dependency>				
-                 <groupId>org.seleniumhq.selenium</groupId>								
-                 <artifactId>selenium-java</artifactId>								
-                 <version>2.45.0</version>								
-            </dependency>				
-             <dependency>				
-                <groupId>org.testng</groupId>								
-                <artifactId>testng</artifactId>								
-                <version>6.8</version>								
-                <scope>test</scope>							  			
-            </dependency>
-<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
-
-
-
-        </dependencies>	
-    <build>
-        <plugins>
-            <plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-surefire-plugin</artifactId>
-  <version>2.13</version>
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.maven.surefire</groupId>
-      <artifactId>surefire-junit47</artifactId>
-      <version>2.13</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.surefire</groupId>
-      <artifactId>surefire-testng</artifactId>
-      <version>2.13</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+        <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+        
 <dependency>
-    <groupId>javax.mail</groupId>
-    <artifactId>javax.mail-api</artifactId>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
     <version>1.6.0</version>
 </dependency>
+    </dependencies>
 
-  </dependencies>
-</plugin>
+    <build>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
