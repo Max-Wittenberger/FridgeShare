@@ -10,7 +10,7 @@
 package dhbwka.wwi.fridgeshare.common.ejb;
 
 import dhbwka.wwi.fridgeshare.common.jpa.User;
-import dhbwka.wwi.fridgeshare.email.EmailService;
+//import dhbwka.wwi.fridgeshare.email.EmailService;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -23,14 +23,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author maxwi
  */
-public class EmailServiceTest {
+/*public class EmailServiceTest {
         private EmailService es;
         private User user;
     
     /**
      * Test of sendMail method, of class EmailService.
      */
-    @Test
+/*    @Test
     public void testEmailSend(){
         System.out.println("emailSend");
         es = new EmailService();
@@ -39,4 +39,4 @@ public class EmailServiceTest {
         assertTrue(true);
     }    
 
-}
+} */

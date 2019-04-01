@@ -18,38 +18,53 @@
     <jsp:attribute name="content">
    
     <form method="post" class="stacked">
-      <div class="login-container"> 
-            <div class="login-form">
-                    <h1> FridgeShare </h1>
-                    <hr>
-                    <h3> Registrieren </h3>
-                       <form>
+        <%--     <div class="login-container"> 
+<div class="login-form">--%>
+        <div class="headstyle">
+             <title> FridgeShare </title>
+                <h1> FRIDGESHARE </h1>
+        </div>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                        <div class="card card-signin my-5">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Create Account</h5>
+                                
                         <input type="hidden" name="csrf_token" value="${csrf_token}">
-                        <div class="form-group">
-                             <input class="" type="text" name="signup_username" value="" placeholder="Benutzername *">
+                        <form class="stacked" method="post">
+                            <div class="form-label-group">
+                                <input class="form-control" id="signup_username" type="text" name="signup_username" value="" placeholder="Benutzername *">
+                                <label for="signup_username" onclick="document.getElementById('signup_username').focus();">Username</label>
+                            </div>
+                            
+                            <div class="form-label-group">
+                                <input class="form-control" id="email" type="email" name="email" value="" placeholder="E-mail *">
+                                <label for="email" onclick="document.getElementById('email').focus();">E-Mail</label>
+                            </div>
+                            
+                            <div class="form-label-group">
+                             <input class="form-control colorchoose" type="color" name="color" value="" placeholder="Deine persönliche Farbe" style="">
+                            </div>
+                            
+                        <div class="form-label-group">
+                             <input class="form-control" id="signup_password1" type="password" name="signup_password1" value="" placeholder="Passwort *" >
+                             <label for="signup_password1" onclick="document.getElementById('signup_password1').focus();">Password</label>
+                        </div>
+                        <div class="form-label-group">
+                             <input class="form-control" id="signup_password2" type="password" name="signup_password2" value="" placeholder="Passwort (wdh.) *">
+                             <label for="signup_password2" onclick="document.getElementById('signup_password2').focus();">Password (rpt.)</label>
+                        </div>
+                        <div class="form-label-group">
+                             <input class="form-control" id="gruppe" type="text" name="gruppe" placeholder="Deine Gruppe" required>
+                             <label for="gruppe" onclick="document.getElementById('gruppe').focus();">Group</label>
+                        </div>
+                        <div class="form-label-group">
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
                         </div>
                         <div class="form-group">
-                             <input class="" type="email" name="email" value="" placeholder="E-mail *">
-                        </div>
-                        <div class="form-group">
-                             <input class="" type="color" name="color" value="" placeholder="Deine persönliche Farbe">
-                        </div>
-                        <div class="form-group">
-                             <input class="" type="password" name="signup_password1" value="" placeholder="Passwort *" >
-                        </div>
-                        <div class="form-group">
-                             <input class="" type="password" name="signup_password2" value="" placeholder="Passwort (wdh.) *">
-                        </div>
-                        <div class="form-group">
-                             <input class="" type="text" name="gruppe" placeholder="Deine Gruppe" required>
-                        </div>
-                        <div class="form-group">
-                            <button class="btnSubmit" type="submit">
-                               Registrieren
-                            </button>
-                        </div>
-                        <div class="form-group">
-                            <a href="<c:url value="/logout/"/>">Anmelden</a>
+                            <a href="<c:url value="/logout/"/>">Log In</a>
                         </div>
                        </form>
                 </div>

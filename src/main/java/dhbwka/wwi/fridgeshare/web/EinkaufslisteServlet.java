@@ -13,7 +13,7 @@ import dhbwka.wwi.fridgeshare.common.ejb.ProduktBean;
 import dhbwka.wwi.fridgeshare.common.ejb.UserBean;
 import dhbwka.wwi.fridgeshare.common.jpa.User;
 import dhbwka.wwi.fridgeshare.common.web.WebUtils;
-import dhbwka.wwi.fridgeshare.email.EmailService;
+//import dhbwka.wwi.fridgeshare.email.EmailService;
 import dhbwka.wwi.fridgeshare.jpa.Produkt;
 import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
 import java.io.IOException;

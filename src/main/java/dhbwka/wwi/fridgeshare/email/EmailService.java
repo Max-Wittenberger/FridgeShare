@@ -4,7 +4,7 @@ package dhbwka.wwi.fridgeshare.email;
 import java.io.File;
 import java.util.Properties;
 
-import javax.activation.DataHandler;
+/*import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
 import javax.mail.BodyPart;
@@ -102,4 +102,4 @@ public class EmailService {
 	
 	
 }
-
+*/
