@@ -4,7 +4,7 @@ package dhbwka.wwi.fridgeshare.jpa;
  */
 public enum ProduktMaßeinheit{
 
-    Stück, kg, g, l, ml, Sonstiges;
+    Stück, Packung , kg, g, l, ml, Sonstiges;
 
     /**
      * Bezeichnung ermitteln
@@ -15,6 +15,8 @@ public enum ProduktMaßeinheit{
         switch (this) {
             case Stück:
                 return "Stück";
+            case Packung:
+                return "Packung";
             case kg:
                 return "kg";
             case g:
@@ -38,6 +40,8 @@ public enum ProduktMaßeinheit{
         switch (this) {
             case Stück:
                 return "Stück";
+            case Packung:
+                return "Packung";
             case kg:
                 return "kg";
             case g:

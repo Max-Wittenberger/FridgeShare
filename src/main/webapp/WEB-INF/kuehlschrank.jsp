@@ -7,6 +7,7 @@
 
 <template:base>
     <jsp:attribute name="head">
+        <meta charset="utf-8"/>
          <link rel="stylesheet" href="<c:url value="/css/kuehlschrank.css"/>" />
     </jsp:attribute>
 
@@ -21,7 +22,7 @@
                 <jsp:useBean id="utils" class="dhbwka.wwi.fridgeshare.common.web.WebUtils"/>
 
                 <div class="gruppe"> <h1>Gruppe 1</h1>
-                     <form method="post" class="stacked">
+                    
                 <%--  geht über die Liste und gibt alle Produkte aus für die jeweilige Kategorie --%>
               <c:forEach items="${ProduktKategorie}" var="kategorie">
                    <c:set var= "i" scope="session" value="0"></c:set> 
@@ -32,7 +33,7 @@
                             <button class="collapsible"> <c:out value="${kategorie.label}"/> </button>
                             <c:set var= "i" scope="session" value="1"></c:set>
                          </c:if>
-                            
+                             <form method="post" class="stacked">
                                  <input type="hidden" name="csrf_token" value="${csrf_token}">
                                  <input type="hidden" name="idOfProduct" value="${produkt.id}">
                             <div class="row content" 
@@ -67,7 +68,7 @@
                                     </button>
                             </div>
                             </div>
-                           
+                            </form>
                            
                          </c:if>   
                     </c:forEach>
@@ -75,7 +76,7 @@
                              <button type="submit" name="action" value="email">
                               Email
                             </button>
-                                  </form>
+                                 
              </div>
               <div class="gruppe">Gruppe 2</div>
             </c:otherwise>

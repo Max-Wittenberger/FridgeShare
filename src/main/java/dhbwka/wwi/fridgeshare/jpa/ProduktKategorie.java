@@ -5,7 +5,7 @@ package dhbwka.wwi.fridgeshare.jpa;
  */
 public enum ProduktKategorie {
 
-    Fleisch, Fisch , Obst, Gemüse, Milchprodukte, Süsswaren, Gefrierfach, Sonstiges ;
+    Fleisch, Fisch , Obst, Gemüse, Milchprodukte, Süsswaren, Gefrierfach, Getränke , Backwaren, Sonstiges ;
 
     /**
      * Bezeichnung ermitteln
@@ -28,6 +28,10 @@ public enum ProduktKategorie {
                 return "Milchprodukte";
             case Süsswaren:
                 return "Süsswaren";
+            case Backwaren:
+                return "Backwaren";     
+            case Getränke:
+                return "Getränke";    
             case Gefrierfach:
                 return "Gefrierfach";
             default:
@@ -55,6 +59,10 @@ public enum ProduktKategorie {
                 return "Milchprodukte";
             case Süsswaren:
                 return "Süsswaren";
+            case Backwaren:
+                return "Backwaren";
+            case Getränke:
+                return "Getränke";
             case Gefrierfach:
                 return "Gefrierfach";
             default:

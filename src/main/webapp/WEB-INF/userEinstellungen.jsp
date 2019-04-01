@@ -6,6 +6,7 @@
 
 <template:base>
     <jsp:attribute name="head">
+        <meta charset="utf-8"/>
          <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />
          <link rel="stylesheet" href="<c:url value="/css/form.css"/>" />
     </jsp:attribute>

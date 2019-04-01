@@ -4,6 +4,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
+
 <template:base>
     <jsp:attribute name="title">
         <c:choose>
@@ -17,6 +18,7 @@
     </jsp:attribute>
 
     <jsp:attribute name="head">
+        <meta charset="utf-8"/>
          <link rel="stylesheet" href="<c:url value="/css/login.css"/>" />
          <link rel="stylesheet" href="<c:url value="/css/form.css"/>" />
     </jsp:attribute>
