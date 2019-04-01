@@ -21,7 +21,10 @@
             <c:otherwise>
                 <jsp:useBean id="utils" class="dhbwka.wwi.fridgeshare.common.web.WebUtils"/>
 
-                <div class="gruppe"> <h1>WG-Karlstraße 10</h1>
+                <div class="gruppe"> 
+                    <div>
+                    <h1>WG-Karlstraße 10</h1>
+                    </div>
                 <form method="post" class="categories">
                 <%--  geht über die Liste und gibt alle Produkte aus für die jeweilige Kategorie --%>
                 <c:forEach items="${ProduktKategorie}" var="kategorie">
