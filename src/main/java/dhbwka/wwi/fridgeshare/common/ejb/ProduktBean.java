@@ -11,7 +11,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 
 /**
- * Enterprise Java Bean zur Verwaltung der angelegten Textschnippsel.
+ * Enterprise Java Bean zur Verwaltung der angelegten Produkte.
  */
 @Stateless
 public class ProduktBean {
@@ -20,12 +20,12 @@ public class ProduktBean {
     EntityManager em;
     
     /**
-     * Anlegen eines neuen Textschnippsels.
+     * Anlegen eines neuen Produkts.
      * @param name Bezeichnung
      * @param content Inhalt
      * @param type Syntaxhervorhebung
      * @param maß Maßeinheit
-     * @return Der angelegte Textschnippsel
+     * @return Das angelegt Produkt
      */
     public Produkt createNewProduct(String name, String content, ProduktKategorie type, ProduktMaßeinheit maß, String ort, String owner) {
         Produkt produkt = new Produkt(name, content, type, maß, ort, owner);
@@ -38,8 +38,8 @@ public class ProduktBean {
     }
     
     /**
-     * Einzelnen Textschnippsel ermitteln
-     * @param id ID des Textschnippsels
+     * Einzelnes Produkt ermitteln
+     * @param id ID des Produkts
      * @return Gefundenes Objekt oder null
      */
     public Produkt findProduct(long id) {

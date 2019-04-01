@@ -1,26 +1,10 @@
-/*
- * Copyright © 2018 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
 package dhbwka.wwi.fridgeshare.web;
 
 import dhbwka.wwi.fridgeshare.common.ejb.ProduktBean;
 import dhbwka.wwi.fridgeshare.common.ejb.UserBean;
 import dhbwka.wwi.fridgeshare.common.ejb.ValidationBean;
 import dhbwka.wwi.fridgeshare.common.jpa.User;
-import dhbwka.wwi.fridgeshare.common.web.FormValues;
-import dhbwka.wwi.fridgeshare.common.web.WebUtils;
-import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
-import dhbwka.wwi.fridgeshare.jpa.ProduktMaßeinheit;
 import java.io.IOException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Anlegen eines neuen Textschnippsels.
+ * Ändern eines Users.
  */
 @WebServlet(urlPatterns = {"/app/user"})
 public class UserServlet extends HttpServlet {
@@ -59,7 +43,6 @@ public class UserServlet extends HttpServlet {
         
         
         // Anfrage an die JSP weiterleiten
-
         request.getRequestDispatcher("/WEB-INF/userEinstellungen.jsp").forward(request, response);
 
     }

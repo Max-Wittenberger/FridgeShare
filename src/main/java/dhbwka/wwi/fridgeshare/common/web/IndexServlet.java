@@ -1,12 +1,3 @@
-/*
- * Copyright © 2018 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
 package dhbwka.wwi.fridgeshare.common.web;
 
 import java.io.IOException;
@@ -18,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet für die Startseite /index.html. Hier wird der Anwender einfach auf
- * die Übersichtsseite weitergeleitet. Falls er noch nicht eingeloggt ist,
+ * den Kühlschrank weitergeleitet. Falls er noch nicht eingeloggt ist,
  * sorgt der Applikationsserver von alleine dafür, zunächst die Loginseite
  * anzuzeigen.
  */

@@ -1,12 +1,3 @@
-/*
- * Copyright © 2018 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
 package dhbwka.wwi.fridgeshare.web;
 
 import dhbwka.wwi.fridgeshare.common.ejb.ProduktBean;
@@ -14,8 +5,6 @@ import dhbwka.wwi.fridgeshare.jpa.Produkt;
 import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
 import dhbwka.wwi.fridgeshare.jpa.ProduktMaßeinheit;
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.Time;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Anlegen eines neuen Textschnippsels.
+ * Anlegen eines neuen Produkts.
  */
 @WebServlet(urlPatterns = {"/app/new/*"})
 public class CreateServlet extends HttpServlet {

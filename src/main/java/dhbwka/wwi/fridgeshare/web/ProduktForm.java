@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Formularinhalte, exakt so, wie sie eingegeben wurden. Diese Klasse
- * spiegelt im Prinzip die Entity-Klasse Waste, kann aber auch ungültige
+ * spiegelt im Prinzip die Entity-Klasse Produkt, kann aber auch ungültige
  * Werte speichern.
  */
 public class ProduktForm {

@@ -14,11 +14,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-/**
- * @author Crunchify.com
- *
- */
-
 public class EmailService {
 
 	static Properties mailServerProperties;
@@ -26,31 +21,29 @@ public class EmailService {
 	static MimeMessage generateMailMessage;
         static String pdfPath = "C:\\Users\\maxwi\\Desktop\\4.Semester\\FRIDGESHARE\\FRIDGESHARE\\FridgeShare\\src\\main\\webapp\\Einkaufsliste.pdf";
 
-	public static void sendEmailTo(String emailTo ) throws AddressException, MessagingException, IOException {
+	public static boolean sendEmailTo(String emailTo ) throws AddressException, MessagingException, IOException {
 		generateAndSendEmail(emailTo);
 		System.out.println("\n\n ===> Your Java Program has just sent an Email successfully. Check your email..");
+                return true;
 	}
 
 	public static void generateAndSendEmail(String emailTo) throws AddressException, MessagingException, IOException {
-
+            
 		// Step1 Mail Properties einrichten
 		System.out.println("\n 1st ===> setup Mail Server Properties..");
 		mailServerProperties = System.getProperties();
 		mailServerProperties.put("mail.smtp.port", "587");
 		mailServerProperties.put("mail.smtp.auth", "true");
 		mailServerProperties.put("mail.smtp.starttls.enable", "true");
-		System.out.println("Mail Server Properties have been setup successfully..");
+		System.out.println("Mail Server Properties setup erfolgreich..");
 
 		// Step2 Email Inhalt füllen (Absender, sowie Inhalt)
 		System.out.println("\n\n 2nd ===> get Mail Session..");
 		getMailSession = Session.getDefaultInstance(mailServerProperties, null);
 		generateMailMessage = new MimeMessage(getMailSession);
 		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailTo));
-		//generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress("test2@crunchify.com"));
 		generateMailMessage.setSubject("Dein Einkaufszettel | FridgeShare");
 
-		//String emailBody = "Hallo ";
-		//generateMailMessage.setContent(emailBody, "text/html");
                 //add PDF to email
                 Multipart multipart = new MimeMultipart();
                 MimeBodyPart attachPart = new MimeBodyPart();

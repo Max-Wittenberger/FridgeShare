@@ -1,12 +1,3 @@
-/*
- * Copyright © 2018 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
 package dhbwka.wwi.fridgeshare.jpa;
 
 import java.io.Serializable;
@@ -15,11 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.TableGenerator;
 
 /**
- * Ein Müll bzw. ein Textschnippsel, den ein Anwender angelegt hat.
+ * Ein Produkt, den ein Anwender angelegt hat.
  */
 @Entity
 public class Produkt implements Serializable {
@@ -141,7 +131,7 @@ public class Produkt implements Serializable {
 
     @Override
     public String toString() {
-        return "dhbwka.wwi.vertsys.javee.wastebin.WasteEntity[ id=" + id + " ]";
+        return "dhbwka.wwi.fridgeshare.jpa[ id=" + id + " ]";
     }
     //</editor-fold>
 

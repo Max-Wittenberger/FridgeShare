@@ -1,22 +1,11 @@
-/*
- * Copyright © 2018 Dennis Schulmeister-Zimolong
- * 
- * E-Mail: dhbw@windows3.de
- * Webseite: https://www.wpvs.de/
- * 
- * Dieser Quellcode ist lizenziert unter einer
- * Creative Commons Namensnennung 4.0 International Lizenz.
- */
 package dhbwka.wwi.fridgeshare.common.web;
 
 import dhbwka.wwi.fridgeshare.common.ejb.ValidationBean;
 import dhbwka.wwi.fridgeshare.common.ejb.UserBean;
 import dhbwka.wwi.fridgeshare.common.jpa.User;
-import java.awt.Color;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
