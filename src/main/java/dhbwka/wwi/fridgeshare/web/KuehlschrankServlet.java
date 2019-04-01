@@ -4,12 +4,16 @@ import dhbwka.wwi.fridgeshare.common.ejb.ProduktBean;
 import dhbwka.wwi.fridgeshare.common.ejb.UserBean;
 import dhbwka.wwi.fridgeshare.common.jpa.User;
 import dhbwka.wwi.fridgeshare.common.web.WebUtils;
+import dhbwka.wwi.fridgeshare.email.EmailService;
 import dhbwka.wwi.fridgeshare.jpa.Produkt;
 import dhbwka.wwi.fridgeshare.jpa.ProduktKategorie;
 import java.io.IOException;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -58,14 +62,22 @@ public class KuehlschrankServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 
        String action = request.getParameter("action");
+       
+    if("email".equals(action)){
+            try {
+                EmailService.sendEmailTo(userBean.getCurrentUser().getEmail());
+            } catch (MessagingException ex) {
+                Logger.getLogger(KuehlschrankServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }else{
        Long id = Long.parseLong(request.getParameter("idOfProduct"));
+       
        Produkt produkt = this.produktBean.findById(id);
        if ("delete".equals(action)) {
             this.produktBean.deleteProdukt(produkt);
      } else if ("change".equals(action)) {
          this.produktBean.changeKategorie(produkt);
-     } else if ("email".equals(action)){
-         //  EmailService.sendMail("maxwittenberger@gmail.com", "I bims", "Hallo");
+     } 
     }
       response.sendRedirect(WebUtils.appUrl(request, KuehlschrankServlet.URL));     
 

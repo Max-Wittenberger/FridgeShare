@@ -60,19 +60,21 @@ public class EinkaufslisteServlet extends HttpServlet {
         User user = this.userBean.getCurrentUser();
 
        String action = request.getParameter("action");
+       
+           if("email".equals(action)){
+            try {
+                EmailService.sendEmailTo(userBean.getCurrentUser().getEmail());
+            } catch (MessagingException ex) {
+                Logger.getLogger(KuehlschrankServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }else{
        Long id = Long.parseLong(request.getParameter("idOfProduct"));
        Produkt produkt = this.produktBean.findById(id);
        if ("delete".equals(action)) {
             this.produktBean.deleteProdukt(produkt);
      } else if ("change".equals(action)) {
          this.produktBean.changeKategorie(produkt);
-    } else if ("email".equals(action)){
-            try {
-                
-                EmailService.sendEmailTo(user.getEmail());
-            } catch (MessagingException ex) {
-                Logger.getLogger(EinkaufslisteServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
+    } 
     }
       response.sendRedirect(WebUtils.appUrl(request, EinkaufslisteServlet.URL));     
 

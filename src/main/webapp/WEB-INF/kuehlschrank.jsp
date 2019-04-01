@@ -73,10 +73,12 @@
                          </c:if>   
                     </c:forEach>
                  </c:forEach> 
+                            <form method="post" class="stacked">
+                                <input type="hidden" name="csrf_token" value="${csrf_token}">
                              <button type="submit" name="action" value="email">
                               Email
                             </button>
-                                 
+                                 </form>
              </div>
               <div class="gruppe">Gruppe 2</div>
             </c:otherwise>
