@@ -50,7 +50,7 @@ public class EinkaufslisteServlet extends HttpServlet {
            throws ServletException, IOException {
         request.setAttribute("ProduktKategorie", ProduktKategorie.values());
         
-        // Vorhandene Schnippsel einlesen und im Request Context ablegen
+       // Vorhandene Schnippsel einlesen und im Request Context ablegen
        List<Produkt> alleProdukte = this.produktBean.findAllProducts("E");
        request.setAttribute("alleProdukte", alleProdukte);
        
