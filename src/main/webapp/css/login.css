@@ -45,19 +45,6 @@
     color: black;
 }
 
-.btnSubmit{
-    width: 50%;
-    height: 150%;
-    border-radius: 1rem;
-    padding: 3%;
-    margin: 1%;
-    border: none;
-    cursor: pointer;
-    font-weight: 550;
-    color: #0062cc;
-    background-color: #fff;
-}
-
 .headstyle {
     font-family: elianto;
     padding: 60px;
@@ -180,4 +167,13 @@
   height: 40px !important;
   padding-top: 9px !important;
   padding-bottom: 9px !important;
+}
+
+.isa_error {
+    margin: 10px 0px;
+    padding:12px;
+    color: #D8000C;
+    background-color: #FFD2D2;
+    font-size:2em;
+    vertical-align:middle
 }

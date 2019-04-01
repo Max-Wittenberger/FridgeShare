@@ -2,6 +2,7 @@ main{
     background-color: transparent;
     margin: 1rem;
     border-radius: 0.5rem;
+    margin-top: 5rem;
 }
 
 head {
@@ -10,5 +11,61 @@ head {
 
 .gruppe{
     background-color: white;
-    margin: 2%;
+    border-radius: 2px;
+    padding: 5px;
+    text-align: center;
+    height: 100%;
+}
+
+.isa_info {
+    margin: 10px 0px;
+    padding:12px;
+    color: #00529B;
+    background-color: #BDE5F8;
+    font-size:2em;
+    vertical-align:middle;
+}
+
+.categories {
+    width: 100%;
+    border-radius: 2px;
+    border: 2px;
+    border-color: white;
+    background-color: #696969;
+    color: #a2d2df;
+    font-size: 20px;
+    margin-bottom: 3px;
+    padding: 4px;
+}
+
+button:hover {
+  background-color: #a2d2df;
+  color: #696969;
+}
+
+.collapsible, .entries {
+  background-color: #eee;
+  cursor: pointer;
+  padding-bottom: 3px;
+  margin: 0px;
+  width: 100%;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 15px;
+  content: initial;
+}
+
+.entries {
+    padding: 0px 5px 0px 5px;
+    content: center;
+    text-align: center;
+}
+
+.sendbtn {
+    padding: 5px;
+    padding-right: 0px;
+    border-radius: 4px;
+    font-size: 15px;
+    width: 15%;
+    float: right;
 }

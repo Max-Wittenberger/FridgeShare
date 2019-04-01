@@ -24,21 +24,32 @@
 
     <jsp:attribute name="content">
   
- <div class="login-container"> 
-            <div class="login-form">
-                <form>
-                    <h1> FridgeShare </h1>
-                    <hr>
-                    <h3> HOPPLA </h3>
-                    <form>
-                        <div class="form-group">
-                          Das hat leider nicht geklappt
-                        </div>
-                        <div class="form-group">
-                           <a href="<c:url value="/logout/"/>">Nochmal Vesuchen</a>
-                        </div>
-                    </form>
+ <div class="headstyle"> 
+    <title> FridgeShare </title>
+    <h1>FRIDGESHARE</h1>
+ </div>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                        <div class="card card-signin my-5">
+                            <div class="card-body">
+                                <h1 class="card-title text-center">Log-in ERROR!</h1>
+                        
+                                <form class="form-signin">
+                                     <div class="isa_error">
+                                         <i class="fa fa-times-circle"></i>
+                                         Wrong Username or Password!
+                                     </div>
+                                        <div class="form-label-group">
+                                            <a href="<c:url value="/logout/"/>">Try again</a>
+                                        </div>
+                                </form>
+                            </div>
+                        </div> 
+                    </div>
                 </div>
-    </div> 
+            </div>
+        </body>
     </jsp:attribute>
 </template:base>

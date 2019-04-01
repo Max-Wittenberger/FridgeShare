@@ -28,33 +28,54 @@
 
         <link rel="stylesheet" href="<c:url value="/css/main.css"/>" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <jsp:invoke fragment="head"/>
     </head>
+    
     <header>
                     <%-- Menü --%>
                 <c:if test="${not empty pageContext.request.userPrincipal}">
 
-<div class="topnav">
-  <a href="<c:url value="/app/kuehlschrank"/>">FridgeShare</a>
-  <a href="<c:url value="/app/kuehlschrank"/>">Kühlschrank</a>
-  <a href="<c:url value="/app/einkaufsliste"/>">Einkaufswagen</a>
-  <a href="<c:url value="/app/new/"/>">Produkt anlegen</a>
-  <a href="<c:url value="/app/user"/>">Profileinstellungen</a>
-  <a href="<c:url value="/logout/"/>">Logout ${pageContext.request.userPrincipal.name}</a>
-</div>
+                    <%--<div class="topnav">--%>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="<c:url value="/app/kuehlschrank"/>">FridgeShare</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/app/kuehlschrank"/>">Kühlschrank</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/app/einkaufsliste"/>">Einkaufswagen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/app/new/"/>">Produkt anlegen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/app/user"/>">Profileinstellungen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<c:url value="/logout/"/>">Logout ${pageContext.request.userPrincipal.name}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
                     
- 
      </c:if>
         
         </header>
-    <body>          
-       <%-- Hauptinhalt der Seite --%>
-        <main>    
+            <body>          
+             <%-- Hauptinhalt der Seite --%>
+             <main>    
             <jsp:invoke fragment="content"/>
-        </main>
-    </body>
+             </main>
+            </body>
 </html>
