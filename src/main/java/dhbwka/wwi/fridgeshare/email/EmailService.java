@@ -23,7 +23,7 @@ public class EmailService {
 
 	public static boolean sendEmailTo(String emailTo ) throws AddressException, MessagingException, IOException {
 		generateAndSendEmail(emailTo);
-		System.out.println("\n\n ===> Your Java Program has just sent an Email successfully. Check your email..");
+		System.out.println("\n\n ===> Email erfolgreich gesendet...");
                 return true;
 	}
 
@@ -50,10 +50,10 @@ public class EmailService {
                 attachPart.attachFile(pdfPath);
                 multipart.addBodyPart(attachPart);
                 generateMailMessage.setContent(multipart, "text/html");
-		System.out.println("Mail Session has been created successfully..");
+		System.out.println("Mail Session wurde erfolgreich erstellt..");
 
 		// Step3 einloggen und email senden
-		System.out.println("\n\n 3rd ===> Get Session and Send mail");
+		System.out.println("\n\n 3rd ===> Get Session und sende E-mail");
 		Transport transport = getMailSession.getTransport("smtp");
 
 		transport.connect("smtp.gmail.com", "FridgeShareProject@gmail.com", "TyBtnmSV2MGQfdj");
