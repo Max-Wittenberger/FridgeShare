@@ -28,7 +28,7 @@
                 <input type="hidden" name="csrf_token" value="${csrf_token}">
 
                 <%-- Eingabefelder --%>
-                <label for="produkt_owner">Eigentümer:</label>
+                <label for="produkt_owner"></label>
                 <div class="side-by-side">
                 <input type="hidden" name="owner" value="${pageContext.request.userPrincipal.name}" readonly="readonly"> 
                 </div>

@@ -12,21 +12,27 @@
 
     <jsp:attribute name="content">
       <form method="post" class="stacked">
-      <div class="login-container"> 
-            <div class="login-form">
-                    <h1> FridgeShare </h1>
-                    <hr>
-                    <h3> Registrieren </h3>
-                       <form>
+      <div class="headstyle">
+        <title> FridgeShare </title>
+    </div>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signin my-5">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Profil bearbeiten</h5>
+
+                        <form class="form-signin">
                         <input type="hidden" name="csrf_token" value="${csrf_token}">
-                        <div class="form-group">
-                             <input class="" type="text" name="signup_username" value="${user.username}" placeholder="Benutzername *" readonly>
+                        <div class="form-label-group">
+                             <input class="form-control" id="signup_username" type="text" name="signup_username" value="${user.username}" placeholder="Benutzername *" readonly>
                         </div>
-                        <div class="form-group">
-                             <input class="" type="email" name="email" value="${user.email}" placeholder="E-mail *">
+                        <div class="form-label-group">
+                             <input class="form-control" type="email" name="email" value="${user.email}" placeholder="E-mail *">
                         </div>
-                        <div class="form-group">
-                             <input class="" type="color" name="color" value="${user.color}" placeholder="Deine persönliche Farbe">
+                        <div class="form-label-group">
+                             <input class="form-control colorchoose" type="color" name="color" value="${user.color}" placeholder="Deine persönliche Farbe">
                         </div>
                         <%--
                         <div class="form-group">
@@ -39,21 +45,22 @@
                              <input class="" type="text" name="new_passwort2" placeholder="Neues Passwort (wdh.) *" required>
                         </div>
                         --%>
-                        <div class="form-group">
-                            <input class="" type="text" name="gruppe" placeholder="Gruppe">
+                        <div class="form-label-group">
+                            <input class="form-control" id="gruppe" type="text" name="gruppe" placeholder="Gruppe">
+                            <label for="gruppe" onclick="document.getElementById('gruppe').focus();">Gruppe</label>
                         </div> 
                         <select>
                             <c:forEach items="${gruppen}" var="gruppe">
                                 <option value="${gruppe}">${gruppe}</option>
                             </c:forEach>
                         </select>
-                        <div class="form-group">
-                            <button class="btnSubmit" type="submit" name="action" value="speichern">
+                        <div class="form-label-group">
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="action" value="speichern">
                                Speichern
-                            </button><button class="btnSubmit" type="submit" name="action" value="gruppe_hinzu">
+                            </button><button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="action" value="gruppe_hinzu">
                                Hinzufügen
                             </button>
-                            <button class="btnSubmit" type="submit" name="action" value="gruppe_entfernen">
+                            <button class="btn btn-lg btn-warning btn-block text-uppercase" type="submit" name="action" value="gruppe_entfernen">
                                Gruppe löschen
                             </button>
                        </form>

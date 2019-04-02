@@ -15,7 +15,7 @@
             <c:when test="${empty alleProdukte}">
                 <div class="isa_info">
                     <i class="fa fa-info-circle"></i>
-                    Es sind keine Produkte im Kühlschrank!
+                    Es sind keine Produkte in der Liste!
                 </div>
             </c:when>
             <c:otherwise>
@@ -62,7 +62,7 @@
                                 
                                 <div class="col-1">
                                     <button type="submit" name="action" value="change">
-                                        <i class="fas fa-snowflake"></i>
+                                        <i class="fas fa-exchange-alt"></i>
                                     </button>
                                 </div>
                                 <div class="col-1">

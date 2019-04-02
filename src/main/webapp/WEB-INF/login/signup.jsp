@@ -30,13 +30,13 @@
                     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                         <div class="card card-signin my-5">
                             <div class="card-body">
-                                <h5 class="card-title text-center">Create Account</h5>
+                                <h5 class="card-title text-center">Registrieren</h5>
                                 
                         <input type="hidden" name="csrf_token" value="${csrf_token}">
                         <form class="stacked" method="post">
                             <div class="form-label-group">
                                 <input class="form-control" id="signup_username" type="text" name="signup_username" value="" placeholder="Benutzername *">
-                                <label for="signup_username" onclick="document.getElementById('signup_username').focus();">Username</label>
+                                <label for="signup_username" onclick="document.getElementById('signup_username').focus();">Benutzername</label>
                             </div>
                             
                             <div class="form-label-group">
@@ -50,21 +50,21 @@
                             
                         <div class="form-label-group">
                              <input class="form-control" id="signup_password1" type="password" name="signup_password1" value="" placeholder="Passwort *" >
-                             <label for="signup_password1" onclick="document.getElementById('signup_password1').focus();">Password</label>
+                             <label for="signup_password1" onclick="document.getElementById('signup_password1').focus();">Passwort</label>
                         </div>
                         <div class="form-label-group">
                              <input class="form-control" id="signup_password2" type="password" name="signup_password2" value="" placeholder="Passwort (wdh.) *">
-                             <label for="signup_password2" onclick="document.getElementById('signup_password2').focus();">Password (rpt.)</label>
+                             <label for="signup_password2" onclick="document.getElementById('signup_password2').focus();">Passwort (wdh.)</label>
                         </div>
                         <div class="form-label-group">
                              <input class="form-control" id="gruppe" type="text" name="gruppe" placeholder="Deine Gruppe" required>
-                             <label for="gruppe" onclick="document.getElementById('gruppe').focus();">Group</label>
+                             <label for="gruppe" onclick="document.getElementById('gruppe').focus();">Gruppe</label>
                         </div>
                         <div class="form-label-group">
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrieren</button>
                         </div>
                         <div class="form-group">
-                            <a href="<c:url value="/logout/"/>">Log In</a>
+                            <a href="<c:url value="/logout/"/>">Anmelden</a>
                         </div>
                        </form>
                 </div>

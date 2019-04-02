@@ -10,7 +10,7 @@ head {
 }
 
 .gruppe{
-    background-color: blue;
+    background-color: #556B2F;
     color: white;
     border-radius: 2px;
     padding: 5px;
@@ -32,16 +32,16 @@ head {
     border-radius: 2px;
     border: 2px;
     border-color: white;
-    background-color: #696969;
-    color: white;
+    background-color: #fefbd8;
+    color: #556B2F;
     font-size: 20px;
     margin-bottom: 3px;
     padding: 4px;
 }
 
 button:hover {
-  background-color: #a2d2df;
-  color: #696969;
+  background-color: #2C86DB;
+  color: #BDE5F8;
 }
 
 .collapsible, .entries {
@@ -54,6 +54,7 @@ button:hover {
   text-align: center;
   font-size: 15px;
   content: initial;
+  color: #556B2F;
 }
 
 .entries {
